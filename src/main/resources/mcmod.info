@@ -1,0 +1,16 @@
+[
+{
+  "modid": "nkmod",
+  "name": "Naschkatze",
+  "description": "best 5/7 mod",
+  "version": "0.0.1",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["secknv"],
+  "credits": "best 5/7 TheWW textures",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
