@@ -21,6 +21,8 @@ public class NkItems{
 	
 	public static void registerRender(Item item){
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
-		renderItem.getItemModelMesher().register(item, 0, new ModelResourceLocation(Reference.MODID + ":" + (item.getUnlocalizedName().substring(5)), "inventory"));
+		renderItem.getItemModelMesher().register(item, 0,
+				new ModelResourceLocation(Reference.MODID + ":" + 
+						(item.getUnlocalizedName().substring(5)), "inventory"));
 	}
 }
