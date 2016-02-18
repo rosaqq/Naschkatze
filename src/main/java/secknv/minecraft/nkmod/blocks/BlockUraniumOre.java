@@ -12,8 +12,11 @@ public class BlockUraniumOre extends Block{
 	
 	public BlockUraniumOre(){
 		super(Material.rock);
-		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(name);
 		setCreativeTab(CreativeTabs.tabBlock);
+		setHarvestLevel("pickaxe", 2);
+		setHardness(4.0f);
+		setResistance(5.0f);
+		GameRegistry.registerBlock(this, name);
 	}
 }

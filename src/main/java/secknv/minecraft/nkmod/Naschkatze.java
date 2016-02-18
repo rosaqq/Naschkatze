@@ -25,5 +25,6 @@ public class Naschkatze{
     @EventHandler
     public void init(FMLInitializationEvent event){
     	proxy.registerRenders();
+    	proxy.registerWorldGen();
     }
 }
