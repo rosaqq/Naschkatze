@@ -1,2 +1,4 @@
 item.redstone_ingot.name=Redstone Ingot
 tile.uranium_ore.name=Uranium Ore
+
+itemGroup.tabNk=Naschkatze

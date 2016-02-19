@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import secknv.minecraft.nkmod.Naschkatze;
 import secknv.minecraft.nkmod.Reference;
 
 public class BlockUraniumOre extends Block{
@@ -13,7 +14,7 @@ public class BlockUraniumOre extends Block{
 	public BlockUraniumOre(){
 		super(Material.rock);
 		setUnlocalizedName(name);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(Naschkatze.tabNk);
 		setHarvestLevel("pickaxe", 2);
 		setHardness(4.0f);
 		setResistance(5.0f);

@@ -10,16 +10,19 @@ import secknv.minecraft.nkmod.Reference;
 public class NkBlocks{
 	
 	public static Block uranium_ore;
+	private static Block test_block;
 	
 	public static void init(){
 		uranium_ore = new BlockUraniumOre();
+		test_block = new BlockFacingTest();
 			
 	}
 	
 	public static void registerRenders(){
 		registerRender(uranium_ore);
+		registerRender(test_block);
 	}
-	
+
 	public static void registerRender(Block block){
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(block), 0,

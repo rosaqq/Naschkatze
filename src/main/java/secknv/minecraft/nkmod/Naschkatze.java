@@ -15,11 +15,12 @@ public class Naschkatze{
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
     
+	public static final NkTab tabNk = new NkTab("tabNk");
+	
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event){
     	NkItems.init();
     	NkBlocks.init();
-    	
     }
 
     @EventHandler
