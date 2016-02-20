@@ -14,7 +14,7 @@ public class NkBlocks{
 	
 	public static void init(){
 		uranium_ore = new BlockUraniumOre();
-		test_block = new BlockFacingTest();
+		test_block = new BlockTestBlock();
 			
 	}
 	

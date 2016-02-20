@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "nkmod:test_block" }
+    }
+}
