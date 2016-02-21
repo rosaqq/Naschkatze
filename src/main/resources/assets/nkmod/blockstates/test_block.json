@@ -1,5 +1,10 @@
 {
     "variants": {
-        "normal": { "model": "nkmod:test_block" }
+        "facing=north": { "model": "nkmod:test_block" },
+        "facing=south": { "model": "nkmod:test_block", "y": 180 },
+        "facing=west":  { "model": "nkmod:test_block", "y": 270 },
+        "facing=east":  { "model": "nkmod:test_block", "y": 90 },
+	"facing=up":  { "model": "nkmod:test_block", "x": 90 },
+	"facing=down":  { "model": "nkmod:test_block", "x": 270 }
     }
 }

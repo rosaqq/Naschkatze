@@ -6,11 +6,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import secknv.minecraft.nkmod.Naschkatze;
 import secknv.minecraft.nkmod.Reference;
 
-public class ItemRedstoneIngot extends Item{
+public class ItemRedstoneIngot extends Item
+{
 	
 	private final String name = "redstone_ingot";
 	
-	public ItemRedstoneIngot(){
+	public ItemRedstoneIngot()
+	{
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(name);
 		setCreativeTab(Naschkatze.tabNk);

@@ -14,14 +14,17 @@ public class UraniumWorldGen implements IWorldGenerator{
 	
 	private WorldGenerator gen_uranium_ore;
 	
-	public UraniumWorldGen(){
+	public UraniumWorldGen()
+	{
 		gen_uranium_ore = new WorldGenMinable(NkBlocks.uranium_ore.getDefaultState(), 10);
 	}
 	
 	private void runGenerator(WorldGenerator generator, World world, Random rand,
-			int chunk_x, int chunk_z, int veinsPerChunk, int minHeight, int maxHeight){
+			int chunk_x, int chunk_z, int veinsPerChunk, int minHeight, int maxHeight)
+	{
 		
-		if(minHeight<0||maxHeight>256||minHeight>maxHeight){
+		if(minHeight<0||maxHeight>256||minHeight>maxHeight)
+		{
 			throw new IllegalArgumentException("Illegal Height Arguments");
 		}
 		
@@ -39,7 +42,8 @@ public class UraniumWorldGen implements IWorldGenerator{
 	public void generate(Random random, int chunk_X, int chunk_Z, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider){
 		
-		switch (world.provider.getDimensionId()){
+		switch (world.provider.getDimensionId())
+		{
 			case -1:
 				break;
 			case 0:

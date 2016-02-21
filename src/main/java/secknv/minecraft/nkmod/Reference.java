@@ -1,6 +1,7 @@
 package secknv.minecraft.nkmod;
 
-public class Reference{
+public class Reference
+{
 	public static final String MODID = "nkmod";
 	public static final String MODNAME = "Naschkatze";
     public static final String VERSION = "0.0.1";

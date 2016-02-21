@@ -7,11 +7,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import secknv.minecraft.nkmod.Naschkatze;
 import secknv.minecraft.nkmod.Reference;
 
-public class BlockUraniumOre extends Block{
+public class BlockUraniumOre extends Block
+{
 	
 	private final String name = "uranium_ore";
 	
-	public BlockUraniumOre(){
+	public BlockUraniumOre()
+	{
 		super(Material.rock);
 		setUnlocalizedName(name);
 		setCreativeTab(Naschkatze.tabNk);
