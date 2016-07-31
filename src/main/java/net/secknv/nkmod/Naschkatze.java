@@ -1,4 +1,4 @@
-package secknv.minecraft.nkmod;
+package net.secknv.nkmod;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -6,10 +6,11 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import secknv.minecraft.nkmod.blocks.NkBlocks;
-import secknv.minecraft.nkmod.items.NkItems;
-import secknv.minecraft.nkmod.proxy.CommonProxy;
-import secknv.minecraft.nkmod.recipes.RecipesCrafting;
+import net.secknv.nkmod.block.NkBlocks;
+import net.secknv.nkmod.item.NkItems;
+import net.secknv.nkmod.proxy.CommonProxy;
+import net.secknv.nkmod.recipes.RecipesCrafting;
+import net.secknv.nkmod.recipes.RecipesSmelting;
 
 @Mod(modid = Reference.MODID, version = Reference.VERSION)
 public class Naschkatze
@@ -24,7 +25,9 @@ public class Naschkatze
     public void preInit(FMLPreInitializationEvent event)
     {
     	NkItems.init();
+    	NkItems.register();
     	NkBlocks.init();
+    	NkBlocks.register();
     }
 
     @EventHandler
@@ -33,5 +36,6 @@ public class Naschkatze
     	proxy.registerRenders();
     	proxy.registerWorldGen();
     	RecipesCrafting.registerRecipes();
+    	RecipesSmelting.registerRecipes();
     }
 }

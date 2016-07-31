@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "nkmod:uranium_ore"
+    "model": "nkmod:copper_ore"
   },
   "variants": {
     "normal": [{}],

@@ -1,4 +1,4 @@
-package secknv.minecraft.nkmod.tileentity;
+package net.secknv.nkmod.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
 

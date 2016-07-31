@@ -1,5 +1,8 @@
 item.redstone_ingot.name=Redstone Ingot
+item.copper_ingot.name=Copper Ingot
+
 tile.uranium_ore.name=Uranium Ore
+tile.copper_ore.name=Copper Ore
 tile.test_block.name=Test Block
 
 itemGroup.tabNk=Naschkatze

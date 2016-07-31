@@ -1,10 +1,19 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "model": "nkmod:test_block",
+        "transform": "forge:default-block"
+    },
     "variants": {
-        "facing=north": { "model": "nkmod:test_block" },
-        "facing=south": { "model": "nkmod:test_block", "y": 180 },
-        "facing=west":  { "model": "nkmod:test_block", "y": 270 },
-        "facing=east":  { "model": "nkmod:test_block", "y": 90 },
-	"facing=up":  { "model": "nkmod:test_block", "x": 90 },
-	"facing=down":  { "model": "nkmod:test_block", "x": 270 }
+        "normal": [{}],
+        "inventory": [{}],
+        "facing": {
+            "north": {},
+            "south": {"y": 180},
+            "west": {"y": 270},
+            "east": {"y": 90},
+            "up": {"x": -90},
+            "down": {"x": 90}
+        }
     }
 }

@@ -1,7 +1,7 @@
-package secknv.minecraft.nkmod.proxy;
+package net.secknv.nkmod.proxy;
 
-import secknv.minecraft.nkmod.blocks.NkBlocks;
-import secknv.minecraft.nkmod.items.NkItems;
+import net.secknv.nkmod.block.NkBlocks;
+import net.secknv.nkmod.item.NkItems;
 
 public class ClientProxy extends CommonProxy
 {
@@ -11,4 +11,5 @@ public class ClientProxy extends CommonProxy
 		NkItems.registerRenders();
 		NkBlocks.registerRenders();
 	}
+
 }

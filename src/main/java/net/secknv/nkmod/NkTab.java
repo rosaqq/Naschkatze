@@ -1,8 +1,8 @@
-package secknv.minecraft.nkmod;
+package net.secknv.nkmod;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import secknv.minecraft.nkmod.items.NkItems;
+import net.secknv.nkmod.item.NkItems;
 
 public class NkTab extends CreativeTabs
 {
@@ -16,7 +16,7 @@ public class NkTab extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return NkItems.redstone_ingot;
+		return NkItems.REDSTONE_INGOT;
 	}
 
 }

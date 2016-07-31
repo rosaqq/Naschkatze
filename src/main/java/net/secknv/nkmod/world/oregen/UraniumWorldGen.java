@@ -1,14 +1,15 @@
-package secknv.minecraft.nkmod.world.oregen;
+package net.secknv.nkmod.world.oregen;
 
 import java.util.Random;
 
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import secknv.minecraft.nkmod.blocks.NkBlocks;
+import net.secknv.nkmod.block.NkBlocks;
 
 public class UraniumWorldGen implements IWorldGenerator{
 	
@@ -16,7 +17,7 @@ public class UraniumWorldGen implements IWorldGenerator{
 	
 	public UraniumWorldGen()
 	{
-		gen_uranium_ore = new WorldGenMinable(NkBlocks.uranium_ore.getDefaultState(), 10);
+		gen_uranium_ore = new WorldGenMinable(NkBlocks.URANIUM_ORE.getDefaultState(), 10);
 	}
 	
 	private void runGenerator(WorldGenerator generator, World world, Random rand,
@@ -39,20 +40,18 @@ public class UraniumWorldGen implements IWorldGenerator{
 	}
 
 	@Override
-	public void generate(Random random, int chunk_X, int chunk_Z, World world,
-			IChunkProvider chunkGenerator, IChunkProvider chunkProvider){
-		
-		switch (world.provider.getDimensionId())
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
+			IChunkProvider chunkProvider) {
+		switch (world.provider.getDimension())
 		{
 			case -1:
 				break;
 			case 0:
-				runGenerator(gen_uranium_ore, world, random, chunk_X, chunk_Z, 6, 0, 60);
+				runGenerator(gen_uranium_ore, world, random, chunkX, chunkZ, 6, 0, 60);
 				break;
 			case 1:
 				break;
 		}
 		
 	}
-
 }
