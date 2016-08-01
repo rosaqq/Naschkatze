@@ -5,16 +5,12 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.secknv.nkmod.Naschkatze;
 
-public class BlockNkOre extends Block
+public class BlockNkOre extends BlockNk
 {
 
-	public BlockNkOre(int harvestLevel)
+	public BlockNkOre(String name, int harvestLevel)
 	{
-		super(Material.ROCK);
-		setCreativeTab(Naschkatze.tabNk);
-		setSoundType(SoundType.STONE);
-		setHardness(4.0f);
-		setResistance(5.0f);
+		super(name, Material.ROCK, SoundType.STONE, 4.0f, 5.0f);
 		setHarvestLevel("pickaxe",harvestLevel);
 	}
 

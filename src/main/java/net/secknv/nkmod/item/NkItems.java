@@ -12,11 +12,13 @@ public class NkItems
 	
 	public static Item REDSTONE_INGOT;
 	public static Item COPPER_INGOT;
+	public static Item COPPER_WIRE;
 	
 	public static void init()
 	{
 		REDSTONE_INGOT = new ItemNk().setRegistryName("redstone_ingot").setUnlocalizedName("redstone_ingot");
 		COPPER_INGOT = new ItemNk().setRegistryName("copper_ingot").setUnlocalizedName("copper_ingot");
+		COPPER_WIRE = new ItemNk().setRegistryName("copper_wire").setUnlocalizedName("copper_wire");
 	}
 	
 	
@@ -24,6 +26,7 @@ public class NkItems
 	{
 		registerItem(REDSTONE_INGOT);
 		registerItem(COPPER_INGOT);
+		registerItem(COPPER_WIRE);
 	}
 	
 	public static void registerItem(Item item)
@@ -35,6 +38,7 @@ public class NkItems
 	{
 		registerRender(REDSTONE_INGOT);
 		registerRender(COPPER_INGOT);
+		registerRender(COPPER_WIRE);
 	}
 	
 	public static void registerRender(Item item)
