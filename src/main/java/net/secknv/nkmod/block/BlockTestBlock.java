@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.secknv.nkmod.Naschkatze;
+import net.secknv.nkmod.Reference;
 
 public class BlockTestBlock extends Block
 {
@@ -26,7 +27,7 @@ public class BlockTestBlock extends Block
 	{
 		super(Material.ROCK);
 		setRegistryName(name);
-		setUnlocalizedName(name);
+		setUnlocalizedName(Reference.MODID + "." + name);
 		setCreativeTab(Naschkatze.tabNk);
 		setHarvestLevel("pickaxe", 0);
 		setHardness(1.0f);

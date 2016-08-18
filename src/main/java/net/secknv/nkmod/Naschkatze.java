@@ -11,6 +11,8 @@ import net.secknv.nkmod.item.NkItems;
 import net.secknv.nkmod.proxy.CommonProxy;
 import net.secknv.nkmod.recipes.RecipesCrafting;
 import net.secknv.nkmod.recipes.RecipesSmelting;
+import net.secknv.nkmod.tileentity.NkTileEntities;
+import net.secknv.nkmod.tileentity.TileEntityCoil;
 
 @Mod(modid = Reference.MODID, version = Reference.VERSION)
 public class Naschkatze
@@ -28,6 +30,7 @@ public class Naschkatze
     	NkItems.register();
     	NkBlocks.init();
     	NkBlocks.register();
+    	NkTileEntities.register();
     }
 
     @EventHandler

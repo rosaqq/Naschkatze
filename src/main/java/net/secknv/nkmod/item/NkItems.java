@@ -3,7 +3,10 @@ package net.secknv.nkmod.item;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemCompass;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.secknv.nkmod.Naschkatze;
 
@@ -16,9 +19,11 @@ public class NkItems
 	
 	public static void init()
 	{
-		REDSTONE_INGOT = new ItemNk().setRegistryName("redstone_ingot").setUnlocalizedName("redstone_ingot");
-		COPPER_INGOT = new ItemNk().setRegistryName("copper_ingot").setUnlocalizedName("copper_ingot");
-		COPPER_WIRE = new ItemNk().setRegistryName("copper_wire").setUnlocalizedName("copper_wire");
+		REDSTONE_INGOT = new ItemNk("redstone_ingot");
+		COPPER_INGOT = new ItemNk("copper_ingot");
+		COPPER_WIRE = new ItemNk("copper_wire");
+		NkCompassOverride.asdf();
+		
 	}
 	
 	
