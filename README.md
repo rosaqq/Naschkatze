@@ -15,13 +15,14 @@ The way the coil-compass mechanic works is still very inefficient; optimization 
 ### Special Thanks
 This mod would not be possible without the patitence and constant assistance of many people from the #minecraftforge IRC.  
 Here are named some to whom I owe most of my current understanding of forge, minecraft source code and modding in general:  
-diesieben07
-gigaherz
-howtonotwin
-williewillus
-Ordinastie_
-
-
+diesieben07  
+gigaherz  
+howtonotwin  
+williewillus  
+Ordinastie_  
+  
+  
+  
 #### IRC best moments
 ```
 <Ordinastie_> because to be honest, you clearly lack programming knowledge to do something better optimised  
