@@ -29,9 +29,7 @@ Ordinastie_
   
 <diesieben07> do you know what the word "instance" means?  
   
-<
-
-RANKSHANK> probably the first thing you should learn is how to use your ide  
+<RANKSHANK> probably the first thing you should learn is how to use your ide  
   
 <
 
