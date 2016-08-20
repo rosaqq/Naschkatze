@@ -24,7 +24,7 @@ Ordinastie_
 
 
 ####irc best moments
-
+```
 <Ordinastie_> because to be honest, you clearly lack programming knowledge to do something better optimized  
   
 <diesieben07> do you know what the word "instance" means?  
@@ -47,3 +47,4 @@ diesieben07> jesus man, use your IDE
 <secknv> slow is not best :\  
 <ghz|afk> but you have limited java knowledge  
 <secknv> i cry  
+```
