@@ -1,4 +1,4 @@
-# Naschkatze  
+﻿# Naschkatze  
 A Minecraft Mod  
 
 
@@ -24,25 +24,26 @@ Ordinastie_
 
 
 ####irc best moments
-<Ordinastie_> because to be honest, you clearly lack programming knowledge to do something better optimized
 
-<diesieben07> do you know what the word "instance" means?
-
+<Ordinastie_> because to be honest, you clearly lack programming knowledge to do something better optimized  
+  
+<diesieben07> do you know what the word "instance" means?  
+  
 <
 
-RANKSHANK> probably the first thing you should learn is how to use your ide
-
+RANKSHANK> probably the first thing you should learn is how to use your ide  
+  
 <
 
-diesieben07> jesus man, use your IDE
-
-<ghz|afk> keep in mind scanning for entities is slow
-<ghz|afk> so you may want to throttle it a bit
-<secknv> so what is the best way of knowing when a player is within 3 blocks of my block
-<ghz|afk> williewillus told you
-<ghz|afk> there's methods in world, for scanning
-<secknv> but you said it's slow
-<ghz|afk> yes
-<secknv> slow is not best :\
-<ghz|afk> but you have limited java knowledge
-<secknv> i cry
+diesieben07> jesus man, use your IDE  
+  
+<ghz|afk> keep in mind scanning for entities is slow  
+<ghz|afk> so you may want to throttle it a bit  
+<secknv> so what is the best way of knowing when a player is within 3 blocks of my block  
+<ghz|afk> williewillus told you  
+<ghz|afk> there's methods in world, for scanning  
+<secknv> but you said it's slow  
+<ghz|afk> yes  
+<secknv> slow is not best :\  
+<ghz|afk> but you have limited java knowledge  
+<secknv> i cry  
