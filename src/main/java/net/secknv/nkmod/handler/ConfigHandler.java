@@ -29,7 +29,7 @@ public class ConfigHandler {
         }
     }
 
-    public static void loadConfiguration() {
+    private static void loadConfiguration() {
 
         testValue = config.getBoolean("useless value", Configuration.CATEGORY_GENERAL, true, "so useless");
 

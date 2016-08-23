@@ -3,10 +3,9 @@ package net.secknv.nkmod.tileentity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.secknv.nkmod.block.BlockCoil;
 
-public class TileEntityCoil extends TileEntity implements ITickable{
+public class TileEntityCoil extends TileEntity implements ITickable {
 	
 	private int ticks = 1;
 	public boolean messUpCompass = false;
@@ -21,7 +20,7 @@ public class TileEntityCoil extends TileEntity implements ITickable{
 	@Override
 	public void update() {
 		
-		if(ticks == 20){
+		if(ticks == 15){
 			this.messUpCompass = this.worldObj.getBlockState(this.pos).getValue(BlockCoil.ENABLED);
 			ticks = 1;
 		}

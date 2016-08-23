@@ -6,9 +6,9 @@ import net.minecraft.block.material.Material;
 import net.secknv.nkmod.Naschkatze;
 import net.secknv.nkmod.reference.Reference;
 
-public class BlockNk extends Block{
+public class BlockNk extends Block {
 
-	public BlockNk(String name, Material material, SoundType sound, float hardness, float resist){
+	public BlockNk(String name, Material material, SoundType sound, float hardness, float resist) {
 		
 		super(material);
 		setRegistryName(name);

@@ -1,5 +1,6 @@
 package net.secknv.nkmod;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -12,6 +13,7 @@ import net.secknv.nkmod.recipes.RecipesCrafting;
 import net.secknv.nkmod.recipes.RecipesSmelting;
 import net.secknv.nkmod.reference.Reference;
 import net.secknv.nkmod.tileentity.NkTileEntities;
+import net.secknv.nkmod.util.LogHelper;
 
 @Mod(modid = Reference.MODID, name=Reference.MODNAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class Naschkatze{
@@ -28,11 +30,14 @@ public class Naschkatze{
     public void preInit(FMLPreInitializationEvent event){
     	
     	ConfigHandler.init(event.getSuggestedConfigurationFile());
+        MinecraftForge.EVENT_BUS.register(new ConfigHandler());
     	
     	NkItems.init();
     	NkItems.register();
     	NkBlocks.init();
     	NkBlocks.register();
+
+        LogHelper.info("preInit complete");
     }
 
     @Mod.EventHandler
@@ -43,10 +48,14 @@ public class Naschkatze{
     	NkTileEntities.register();
     	RecipesCrafting.registerRecipes();
     	RecipesSmelting.registerRecipes();
+
+        LogHelper.info("init complete");
     }
     
     @Mod.EventHandler
     public void postInit(FMLInitializationEvent event){
+
+        LogHelper.info("postInit complete");
     	
     }
 }

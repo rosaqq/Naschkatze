@@ -6,14 +6,17 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.secknv.nkmod.block.NkBlocks;
 import net.secknv.nkmod.item.NkItems;
 
-public class RecipesCrafting
-{
+public class RecipesCrafting {
 	
-	public static void registerRecipes()
-	{
+	public static void registerRecipes() {
+
+		//shaped recipes
 		GameRegistry.addRecipe(new ItemStack(NkBlocks.TEST_BLOCK), "ACA", "DBD", "ACA", 'A', Blocks.OBSIDIAN, 'B', Blocks.DIAMOND_BLOCK, 'C', Blocks.GLASS_PANE, 'D', Blocks.COAL_BLOCK);
 		GameRegistry.addRecipe(new ItemStack(NkItems.COPPER_WIRE), "AAA", 'A', NkItems.COPPER_INGOT);
 		GameRegistry.addRecipe(new ItemStack(NkBlocks.COPPER_BLOCK), "AAA", "AAA", "AAA", 'A', NkItems.COPPER_INGOT);
 		GameRegistry.addRecipe(new ItemStack(NkBlocks.COPPER_COIL), "AAA", "ABA", "AAA", 'A', NkItems.COPPER_WIRE, 'B', Blocks.PLANKS);
+
+        //shapeless recipes
+        GameRegistry.addShapelessRecipe(new ItemStack(NkItems.COPPER_INGOT, 9), NkBlocks.COPPER_BLOCK);
 	}
 }

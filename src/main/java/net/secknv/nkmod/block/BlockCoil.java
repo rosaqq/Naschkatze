@@ -1,7 +1,6 @@
 package net.secknv.nkmod.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -10,26 +9,22 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.secknv.nkmod.Naschkatze;
 import net.secknv.nkmod.reference.Reference;
-import net.secknv.nkmod.tileentity.NkTileEntities;
 import net.secknv.nkmod.tileentity.TileEntityCoil;
 
-public class BlockCoil extends Block
-{
+public class BlockCoil extends Block {
 	
 	public static final PropertyDirection FACING = PropertyDirection.create("facing");
 	public static final PropertyBool ENABLED = PropertyBool.create("enabled");
-	private final String name = "copper_coil";
-	
-	public BlockCoil()
-	{
+    private final String name = "copper_coil";
+
+    public BlockCoil() {
 		super(Material.ROCK);
-		setRegistryName(name);
+        setRegistryName(name);
 		setUnlocalizedName(Reference.MODID + "." + name);
 		setCreativeTab(Naschkatze.tabNk);
 		setHardness(1.0f);
@@ -90,8 +85,7 @@ public class BlockCoil extends Block
     @Override
     public TileEntity createTileEntity(World world, IBlockState state)
     {
-    	TileEntityCoil tent = new TileEntityCoil();
-    	return tent;
+        return new TileEntityCoil();
     }
     
     

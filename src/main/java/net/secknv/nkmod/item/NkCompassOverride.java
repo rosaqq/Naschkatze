@@ -19,11 +19,11 @@ import net.secknv.nkmod.tileentity.TileEntityCoil;
 
 public class NkCompassOverride {
 	
-	public static void asdf(){
+	public static void asdf() {
 		
 		IItemPropertyGetter underlyingGetter = Items.COMPASS.getPropertyGetter(new ResourceLocation("angle"));
-		Items.COMPASS.addPropertyOverride(new ResourceLocation("angle"), new IItemPropertyGetter()
-		{
+		Items.COMPASS.addPropertyOverride(new ResourceLocation("angle"), new IItemPropertyGetter() {
+
             @SideOnly(Side.CLIENT)
             double rotation;
             @SideOnly(Side.CLIENT)
@@ -31,51 +31,50 @@ public class NkCompassOverride {
             @SideOnly(Side.CLIENT)
             long lastUpdateTick;
             @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
-            {
-                if (entityIn == null && !stack.isOnItemFrame())
-                {
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+
+                if (entityIn == null && !stack.isOnItemFrame()) {
+
                     return 0.0F;
                 }
-                else
-                {
+                else {
+
                     boolean flag = entityIn != null;
                     Entity entity = (Entity)(flag ? entityIn : stack.getItemFrame());
 
-                    if (worldIn == null)
-                    {
+                    if (worldIn == null) {
+
                         worldIn = entity.worldObj;
                     }
 
                     double d0;
 
-                    if (worldIn.provider.isSurfaceWorld())
-                    {
+                    if (worldIn.provider.isSurfaceWorld()) {
+
                         double d1 = flag ? (double)entity.rotationYaw : this.getFrameRotation((EntityItemFrame)entity);
                         d1 = d1 % 360.0D;
                         double d2 = this.getSpawnToAngle(worldIn, entity);
                         d0 = Math.PI - ((d1 - 90.0D) * 0.01745329238474369D - d2);
                     }
-                    else
-                    {
+                    else {
+
                         d0 = Math.random() * (Math.PI * 2D);
                     }
 
-                    if (flag)
-                    {
+                    if (flag) {
+
                         d0 = this.wobble(worldIn, d0);
                     }
 
                     float f = (float)(d0 / (Math.PI * 2D));
-                    return f % 1.0F; // MathHelper.positiveModulo(f, 1.0F);
+                    return MathHelper.positiveModulo(f, 1.0F);
                 }
             }
-            
-            // private double wobble(World p_185093_1_, double p_185093_2_)
+
             
             @SideOnly(Side.CLIENT)
-            private double wobble(World worldIn, double num)
-            {
+            private double wobble(World worldIn, double num) {
+
                 if (worldIn.getTotalWorldTime() != this.lastUpdateTick)
                 {
                     this.lastUpdateTick = worldIn.getTotalWorldTime();

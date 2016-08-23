@@ -10,23 +10,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.secknv.nkmod.Naschkatze;
 import net.secknv.nkmod.reference.Reference;
 
-public class BlockTestBlock extends Block
-{
+public class BlockTestBlock extends Block {
 	
 	public static final PropertyDirection FACING = PropertyDirection.create("facing");
-	private final String name = "test_block";
-	
-	public BlockTestBlock()
-	{
+    private final String name = "test_block";
+
+    public BlockTestBlock() {
+
 		super(Material.ROCK);
-		setRegistryName(name);
+        setRegistryName(name);
 		setUnlocalizedName(Reference.MODID + "." + name);
 		setCreativeTab(Naschkatze.tabNk);
 		setHarvestLevel("pickaxe", 0);
