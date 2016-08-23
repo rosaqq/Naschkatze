@@ -1,8 +1,5 @@
 # eclipse
 bin
-*.launch
-.settings
-.metadata
 .classpath
 .project
 
@@ -10,12 +7,14 @@ bin
 out
 *.ipr
 *.iws
-*.iml
 .idea
 
 # gradle
 build
 .gradle
+gradle/
+gradlew
+gradlew.bat
 
 # other
 eclipse
@@ -28,7 +27,3 @@ Paulscode SoundSystem CodecIBXM License.txt
 README.txt
 build.gradle
 forge-1.10.2-12.18.1.2011-changelog.txt
-gradle/
-gradlew
-gradlew.bat
-
