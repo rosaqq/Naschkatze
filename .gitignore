@@ -10,9 +10,9 @@ out
 .idea
 
 # gradle
-build/
-.gradle/
-gradle/
+build
+.gradle
+gradle
 gradlew
 gradlew.bat
 
@@ -27,3 +27,4 @@ Paulscode SoundSystem CodecIBXM License.txt
 README.txt
 build.gradle
 forge-1.10.2-12.18.1.2011-changelog.txt
+

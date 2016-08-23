@@ -1,0 +1,11 @@
+item.nkmod.redstone_ingot.name=Redstone Ingot
+item.nkmod.copper_ingot.name=Copper Ingot
+item.nkmod.copper_wire.name=Copper Wire
+
+tile.nkmod.uranium_ore.name=Uranium Ore
+tile.nkmod.copper_ore.name=Copper Ore
+tile.nkmod.test_block.name=Test Block
+tile.nkmod.copper_block.name=Copper Block
+tile.nkmod.copper_coil.name=Copper Coil
+
+itemGroup.tabNk=Naschkatze
