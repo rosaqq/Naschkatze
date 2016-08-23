@@ -15,7 +15,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.secknv.nkmod.Naschkatze;
-import net.secknv.nkmod.Reference;
+import net.secknv.nkmod.reference.Reference;
 import net.secknv.nkmod.tileentity.NkTileEntities;
 import net.secknv.nkmod.tileentity.TileEntityCoil;
 

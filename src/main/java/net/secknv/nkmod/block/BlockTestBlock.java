@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.secknv.nkmod.Naschkatze;
-import net.secknv.nkmod.Reference;
+import net.secknv.nkmod.reference.Reference;
 
 public class BlockTestBlock extends Block
 {

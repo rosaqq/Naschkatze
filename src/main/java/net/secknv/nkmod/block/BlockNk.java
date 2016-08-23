@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.secknv.nkmod.Naschkatze;
-import net.secknv.nkmod.Reference;
+import net.secknv.nkmod.reference.Reference;
 
 public class BlockNk extends Block{
 
