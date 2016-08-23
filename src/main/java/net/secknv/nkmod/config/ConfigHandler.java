@@ -10,12 +10,10 @@ public class ConfigHandler {
 		
 		Configuration config = new Configuration(configFile);
 		
-		boolean configValue = false;
-		
 		try {
 			
 			config.load();
-			configValue = config.get(config.CATEGORY_GENERAL, "configValue", true, "example config value").getBoolean(true);
+			boolean configValue = config.get("useless config", "configValue", true, "example config value").getBoolean(true);
 			
 		}
 		catch(Exception e) {
@@ -26,8 +24,6 @@ public class ConfigHandler {
 			
 			config.save();
 		}
-		
-		System.out.println(configValue);
 	}
 
 }
