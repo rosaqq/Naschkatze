@@ -12,7 +12,7 @@ public class BlockNk extends Block {
 		
 		super(material);
 		setRegistryName(name);
-		setUnlocalizedName(Reference.MODID + "." + name);
+		setUnlocalizedName(Reference.MOD_ID + "." + name);
 		setCreativeTab(Naschkatze.tabNk);
 		setSoundType(sound);
 		setHardness(hardness);

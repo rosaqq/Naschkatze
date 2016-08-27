@@ -15,10 +15,10 @@ import net.secknv.nkmod.reference.Reference;
 import net.secknv.nkmod.tileentity.NkTileEntities;
 import net.secknv.nkmod.util.LogHelper;
 
-@Mod(modid = Reference.MODID, name=Reference.MODNAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
+@Mod(modid = Reference.MOD_ID, name=Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class Naschkatze{
 
-	@Mod.Instance(Reference.MODID)
+	@Mod.Instance(Reference.MOD_ID)
 	public static Naschkatze instance;
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
@@ -31,10 +31,8 @@ public class Naschkatze{
     	
     	ConfigHandler.init(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(new ConfigHandler());
-    	
-    	NkItems.init();
+
     	NkItems.register();
-    	NkBlocks.init();
     	NkBlocks.register();
 
         LogHelper.info("preInit complete");

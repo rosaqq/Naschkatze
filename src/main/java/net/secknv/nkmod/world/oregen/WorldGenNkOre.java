@@ -14,6 +14,7 @@ import java.util.Random;
 /**
  * Created by secknv on 23/08/2016.
  */
+
 public class WorldGenNkOre implements IWorldGenerator{
 
     private WorldGenMinable oreGen;

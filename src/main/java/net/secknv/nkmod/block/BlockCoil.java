@@ -25,7 +25,7 @@ public class BlockCoil extends Block {
     public BlockCoil() {
 		super(Material.ROCK);
         setRegistryName(name);
-		setUnlocalizedName(Reference.MODID + "." + name);
+		setUnlocalizedName(Reference.MOD_ID + "." + name);
 		setCreativeTab(Naschkatze.tabNk);
 		setHardness(1.0f);
 		setResistance(5.0f);

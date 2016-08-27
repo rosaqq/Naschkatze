@@ -23,7 +23,7 @@ public class BlockTestBlock extends Block {
 
 		super(Material.ROCK);
         setRegistryName(name);
-		setUnlocalizedName(Reference.MODID + "." + name);
+		setUnlocalizedName(Reference.MOD_ID + "." + name);
 		setCreativeTab(Naschkatze.tabNk);
 		setHarvestLevel("pickaxe", 0);
 		setHardness(1.0f);

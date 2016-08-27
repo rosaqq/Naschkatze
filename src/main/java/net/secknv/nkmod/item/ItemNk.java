@@ -8,8 +8,9 @@ public class ItemNk extends Item {
 	
 	public ItemNk(String name) {
 
+		super();
 		setRegistryName(name);
-		setUnlocalizedName(Reference.MODID + "." + name);
+		setUnlocalizedName(Reference.MOD_ID + "." + name);
 		setCreativeTab(Naschkatze.tabNk);
 	}
 }

@@ -8,23 +8,16 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.secknv.nkmod.reference.Reference;
 
+@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class NkBlocks {
 	
-	public static Block URANIUM_ORE;
-	public static Block TEST_BLOCK;
-	public static Block COPPER_ORE;
-	public static Block COPPER_COIL;
-	public static Block COPPER_BLOCK;
-	
-	public static void init() {
-
-		TEST_BLOCK = new BlockTestBlock();
-		COPPER_ORE = new BlockNkOre("copper_ore", 1);
-		URANIUM_ORE = new BlockNkOre("uranium_ore", 2);
-		COPPER_COIL = new BlockCoil();
-		COPPER_BLOCK = new BlockNk("copper_block", Material.IRON, SoundType.METAL, 5.0F, 10.0F);
-	}
+	public static Block URANIUM_ORE = new BlockTestBlock();
+	public static Block TEST_BLOCK = new BlockNkOre("copper_ore", 1);
+	public static Block COPPER_ORE = new BlockNkOre("uranium_ore", 2);
+	public static Block COPPER_COIL = new BlockCoil();
+	public static Block COPPER_BLOCK = new BlockNk("copper_block", Material.IRON, SoundType.METAL, 5.0F, 10.0F);
 	
 	public static void register() {
 

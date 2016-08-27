@@ -4,32 +4,26 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.secknv.nkmod.reference.Reference;
 
+@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class NkItems {
-	
-	public static Item REDSTONE_INGOT;
-	public static Item COPPER_INGOT;
-	public static Item COPPER_WIRE;
-	
-	public static void init() {
 
-		REDSTONE_INGOT = new ItemNk("redstone_ingot");
-		COPPER_INGOT = new ItemNk("copper_ingot");
-		COPPER_WIRE = new ItemNk("copper_wire");
-		NkCompassOverride.asdf();
-		
-	}
-	
-	
+	public static Item REDSTONE_INGOT = new ItemNk("redstone_ingot");
+	public static Item COPPER_INGOT = new ItemNk("copper_ingot");
+	public static Item COPPER_WIRE = new ItemNk("copper_wire");
+
+
 	public static void register() {
 
+        NkCompassOverride.asdf();
 		registerItem(REDSTONE_INGOT);
 		registerItem(COPPER_INGOT);
 		registerItem(COPPER_WIRE);
 	}
 	
-	public static void registerItem(Item item)
-	{
+	public static void registerItem(Item item) {
+
 		GameRegistry.register(item);
 	}
 	
