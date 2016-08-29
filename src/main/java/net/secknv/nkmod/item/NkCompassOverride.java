@@ -1,7 +1,5 @@
 package net.secknv.nkmod.item;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItemFrame;
@@ -16,6 +14,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.secknv.nkmod.tileentity.TileEntityCoil;
+import net.secknv.nkmod.util.WorldHelper;
+
+import javax.annotation.Nullable;
 
 public class NkCompassOverride {
 	
@@ -40,7 +41,7 @@ public class NkCompassOverride {
                 else {
 
                     boolean flag = entityIn != null;
-                    Entity entity = (Entity)(flag ? entityIn : stack.getItemFrame());
+                    Entity entity = flag ? entityIn : stack.getItemFrame();
 
                     if (worldIn == null) {
 
@@ -98,18 +99,14 @@ public class NkCompassOverride {
             {
             	
             	BlockPos blockpos = worldIn.getSpawnPoint();
-            	
-            	for(BlockPos pos:BlockPos.getAllInBox(ent.getPosition().add(-3.0D, -3.0D, -3.0D), ent.getPosition().add(3.0D, 3.0D, 3.0D))){
-            		TileEntity nearbyTE = worldIn.getTileEntity(pos);
-            		
-            		if(nearbyTE instanceof TileEntityCoil){
-            			TileEntityCoil nearbyCoil = (TileEntityCoil) nearbyTE;
-            			if(nearbyCoil.messUpCompass){
-            				blockpos = nearbyCoil.getCoilPosition();
-            				System.out.println("compass triggered");
-            			}
-            		}
-            	}
+
+                for (TileEntity tileEntity : WorldHelper.getTileEntitiesWithinAABB(worldIn, TileEntityCoil.class, WorldHelper.createAABBFromBlockPos(ent.getPosition(), 5D))) {
+
+                    TileEntityCoil coil = (TileEntityCoil) tileEntity;
+                    if (coil.messUpCompass) {
+                        blockpos = coil.getPos();
+                    }
+                }
             	
             	return Math.atan2((double)blockpos.getZ() - ent.posZ, (double)blockpos.getX() - ent.posX);
             }

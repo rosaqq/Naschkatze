@@ -1,7 +1,7 @@
 ﻿# Naschkatze
-A Minecraft Mod
+A Minecraft Mod  
 
-The mod has a creative tab for all it's stuff.
+The mod has a creative tab for all it's stuff.  
 The survival additions right now are:  
 - Copper Ore  
 - Copper Ingot (smelt ore)  
@@ -10,7 +10,8 @@ The survival additions right now are:
 - Copper Coil (8 copper wire in a chest-like pattern with one wooden plank in the middle)  
 
 When you redstone power a coil, it will make all compasses point to it if they are within a 3 block radius of the coil.  
-The way the coil-compass mechanic works is still very inefficient; optimization planned for next commit.  
+If you are in range of multiple powered coils, compass will point to the first coil placed.  
+TODO: make it point at closest coil  
 
 ### Special Thanks
 This mod would not be possible without the patitence and constant assistance of many people from the #minecraftforge IRC.  

@@ -9,19 +9,19 @@ public class TileEntityCoil extends TileEntity implements ITickable {
 	
 	private int ticks = 1;
 	public boolean messUpCompass = false;
-	
-	
-	public BlockPos getCoilPosition()
-    {
-        return TileEntityCoil.this.pos;
-    }
-	
+    private int activatingRangeFromPlayer = 3;
+
+
+	private boolean isActivated() {
+		BlockPos blockpos = this.pos;
+		return this.worldObj.isAnyPlayerWithinRangeAt((double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.5D, (double)blockpos.getZ() + 0.5D, this.activatingRangeFromPlayer);
+	}
 
 	@Override
 	public void update() {
 		
 		if(ticks == 15){
-			this.messUpCompass = this.worldObj.getBlockState(this.pos).getValue(BlockCoil.ENABLED);
+			this.messUpCompass = this.worldObj.getBlockState(this.pos).getValue(BlockCoil.ENABLED) && isActivated();
 			ticks = 1;
 		}
 		ticks++;
