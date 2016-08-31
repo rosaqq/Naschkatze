@@ -1,6 +1,8 @@
 ﻿# Naschkatze
 A Minecraft Mod  
 
+#### Requires Forge 12.18.1.2011+  
+
 The mod has a creative tab for all it's stuff.  
 The survival additions right now are:  
 - Copper Ore  
