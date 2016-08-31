@@ -1,5 +1,7 @@
 package net.secknv.nkmod.util;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -8,6 +10,7 @@ import net.minecraft.world.World;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,13 +43,13 @@ public class WorldHelper {
         methodIsChunkLoaded = m;
     }
 
-    public static List<TileEntity> getTileEntitiesWithinAABB(World world, Class<net.secknv.nkmod.tileentity.TileEntityCoil> tileEntityClass, AxisAlignedBB aabb)
+    public static LinkedList<TileEntity> getTileEntitiesWithinAABB(World world, Class<net.secknv.nkmod.tileentity.TileEntityCoil> tileEntityClass, AxisAlignedBB aabb)
     {
         int i = MathHelper.floor_double((aabb.minX - MAX_ENTITY_RADIUS) / 16.0D);
         int j = MathHelper.floor_double((aabb.maxX + MAX_ENTITY_RADIUS) / 16.0D);
         int k = MathHelper.floor_double((aabb.minZ - MAX_ENTITY_RADIUS) / 16.0D);
         int l = MathHelper.floor_double((aabb.maxZ + MAX_ENTITY_RADIUS) / 16.0D);
-        List<TileEntity> list = new LinkedList<TileEntity>();
+        LinkedList<TileEntity> list = new LinkedList<TileEntity>();
 
         for (int i1 = i; i1 <= j; ++i1)
         {
@@ -75,5 +78,17 @@ public class WorldHelper {
             }
         }
         return list;
+    }
+
+    public static TileEntity closestTEToPlayer(List<TileEntity> list, Entity player) {
+        double sqdist;
+        LinkedList distList = new LinkedList();
+        for(TileEntity te : list) {
+            sqdist = Math.pow(player.getPosition().getX() - te.getPos().getX(), 2D) +
+                     Math.pow(player.getPosition().getY() - te.getPos().getY(), 2D) +
+                     Math.pow(player.getPosition().getZ() - te.getPos().getZ(), 2D);
+            distList.add(sqdist);
+        }
+        return list.get(distList.indexOf(Collections.min(distList)));
     }
 }

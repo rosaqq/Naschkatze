@@ -17,12 +17,16 @@ import net.secknv.nkmod.tileentity.TileEntityCoil;
 import net.secknv.nkmod.util.WorldHelper;
 
 import javax.annotation.Nullable;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+import static sun.audio.AudioPlayer.player;
 
 public class NkCompassOverride {
 	
 	public static void asdf() {
-		
-		IItemPropertyGetter underlyingGetter = Items.COMPASS.getPropertyGetter(new ResourceLocation("angle"));
+
 		Items.COMPASS.addPropertyOverride(new ResourceLocation("angle"), new IItemPropertyGetter() {
 
             @SideOnly(Side.CLIENT)
@@ -53,13 +57,13 @@ public class NkCompassOverride {
                     if (worldIn.provider.isSurfaceWorld()) {
 
                         double d1 = flag ? (double)entity.rotationYaw : this.getFrameRotation((EntityItemFrame)entity);
-                        d1 = d1 % 360.0D;
-                        double d2 = this.getSpawnToAngle(worldIn, entity);
-                        d0 = Math.PI - ((d1 - 90.0D) * 0.01745329238474369D - d2);
+                        d1 = (double)MathHelper.positiveModulo( (float)d1 / 360F, 1.0F );
+                        double d2 = this.getSpawnToAngle(worldIn, entity) / (Math.PI * 2D);
+                        d0 = 0.5D - ((d1 - 0.25D) - d2);
                     }
                     else {
 
-                        d0 = Math.random() * (Math.PI * 2D);
+                        d0 = Math.random();
                     }
 
                     if (flag) {
@@ -67,8 +71,7 @@ public class NkCompassOverride {
                         d0 = this.wobble(worldIn, d0);
                     }
 
-                    float f = (float)(d0 / (Math.PI * 2D));
-                    return MathHelper.positiveModulo(f, 1.0F);
+                    return MathHelper.positiveModulo((float)d0, 1.0F);
                 }
             }
 
@@ -76,39 +79,44 @@ public class NkCompassOverride {
             @SideOnly(Side.CLIENT)
             private double wobble(World worldIn, double num) {
 
-                if (worldIn.getTotalWorldTime() != this.lastUpdateTick)
-                {
+                if (worldIn.getTotalWorldTime() != this.lastUpdateTick) {
+
                     this.lastUpdateTick = worldIn.getTotalWorldTime();
                     double d0 = num - this.rotation;
-                    d0 = d0 % (Math.PI * 2D);
-                    d0 = MathHelper.clamp_double(d0, -1.0D, 1.0D);
+                    d0 = (double)MathHelper.positiveModulo( (float)d0 + 0.5F, 1.0F ) - 0.5D;
                     this.rota += d0 * 0.1D;
                     this.rota *= 0.8D;
                     this.rotation += this.rota;
+                    this.rotation = (double)MathHelper.positiveModulo( (float)this.rotation, 1.0F );
                 }
 
                 return this.rotation;
             }
             @SideOnly(Side.CLIENT)
-            private double getFrameRotation(EntityItemFrame entFrame)
-            {
+            private double getFrameRotation(EntityItemFrame entFrame) {
+
                 return (double)MathHelper.clampAngle(180 + entFrame.facingDirection.getHorizontalIndex() * 90);
             }
             @SideOnly(Side.CLIENT)
-            private double getSpawnToAngle(World worldIn, Entity ent)
-            {
-            	
-            	BlockPos blockpos = worldIn.getSpawnPoint();
+            private double getSpawnToAngle(World worldIn, Entity ent) {
 
-                for (TileEntity tileEntity : WorldHelper.getTileEntitiesWithinAABB(worldIn, TileEntityCoil.class, WorldHelper.createAABBFromBlockPos(ent.getPosition(), 5D))) {
+                TileEntityCoil closestActiveCoil = getClosestActivatedCoil(worldIn, ent);
+                BlockPos blockpos = ( closestActiveCoil == null ? worldIn.getSpawnPoint() : closestActiveCoil.getPos());
 
-                    TileEntityCoil coil = (TileEntityCoil) tileEntity;
-                    if (coil.messUpCompass) {
-                        blockpos = coil.getPos();
+            	return Math.atan2((double)blockpos.getZ() - ent.posZ, (double)blockpos.getX() - ent.posX);
+            }
+
+            @SideOnly(Side.CLIENT)
+            private TileEntityCoil getClosestActivatedCoil(World worldIn, Entity ent) {
+                LinkedList<TileEntity> coilList = WorldHelper.getTileEntitiesWithinAABB(worldIn, TileEntityCoil.class, WorldHelper.createAABBFromBlockPos(ent.getPosition(), 5D));
+                Iterator coilIterator = coilList.iterator();
+                while (coilIterator.hasNext()) {
+                    TileEntityCoil coil = (TileEntityCoil) coilIterator.next();
+                    if (!coil.messUpCompass){
+                        coilIterator.remove();
                     }
                 }
-            	
-            	return Math.atan2((double)blockpos.getZ() - ent.posZ, (double)blockpos.getX() - ent.posX);
+                return coilList.isEmpty() ? null : (TileEntityCoil) WorldHelper.closestTEToPlayer(coilList, ent);
             }
         });
 		
