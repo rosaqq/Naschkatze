@@ -10,7 +10,7 @@ import net.secknv.nkmod.reference.Reference;
 public class ConfigHandler {
 
 	public static Configuration config;
-	public static boolean testValue = false;
+    public static int coilRadius = 3;
 
 
 	public static void init(File configFile) {
@@ -31,7 +31,7 @@ public class ConfigHandler {
 
     private static void loadConfiguration() {
 
-        testValue = config.getBoolean("useless value", Configuration.CATEGORY_GENERAL, true, "so useless");
+        coilRadius = config.getInt("Coil Influence Radius", Configuration.CATEGORY_GENERAL, 3, 0, 100, "Set the radius of the coils' influence on the compass.");
 
         if(config.hasChanged()) {
             config.save();

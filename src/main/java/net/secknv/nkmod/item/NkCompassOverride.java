@@ -13,6 +13,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.secknv.nkmod.handler.ConfigHandler;
 import net.secknv.nkmod.tileentity.TileEntityCoil;
 import net.secknv.nkmod.util.WorldHelper;
 
@@ -108,7 +109,7 @@ public class NkCompassOverride {
 
             @SideOnly(Side.CLIENT)
             private TileEntityCoil getClosestActivatedCoil(World worldIn, Entity ent) {
-                LinkedList<TileEntity> coilList = WorldHelper.getTileEntitiesWithinAABB(worldIn, TileEntityCoil.class, WorldHelper.createAABBFromBlockPos(ent.getPosition(), 5D));
+                LinkedList<TileEntity> coilList = WorldHelper.getTileEntitiesWithinAABB(worldIn, TileEntityCoil.class, WorldHelper.createAABBFromBlockPos(ent.getPosition(), ConfigHandler.coilRadius + 2));
                 Iterator coilIterator = coilList.iterator();
                 while (coilIterator.hasNext()) {
                     TileEntityCoil coil = (TileEntityCoil) coilIterator.next();

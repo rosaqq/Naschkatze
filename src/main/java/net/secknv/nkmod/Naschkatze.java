@@ -34,8 +34,6 @@ public class Naschkatze{
 
     	NkItems.register();
     	NkBlocks.register();
-
-        LogHelper.info("preInit complete");
     }
 
     @Mod.EventHandler
@@ -46,14 +44,10 @@ public class Naschkatze{
     	NkTileEntities.register();
     	RecipesCrafting.registerRecipes();
     	RecipesSmelting.registerRecipes();
-
-        LogHelper.info("init complete");
     }
     
     @Mod.EventHandler
     public void postInit(FMLInitializationEvent event){
-
-        LogHelper.info("postInit complete");
     	
     }
 }

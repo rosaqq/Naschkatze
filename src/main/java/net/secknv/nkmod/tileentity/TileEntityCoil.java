@@ -4,12 +4,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.secknv.nkmod.block.BlockCoil;
+import net.secknv.nkmod.handler.ConfigHandler;
 
 public class TileEntityCoil extends TileEntity implements ITickable {
 	
 	private int ticks = 1;
 	public boolean messUpCompass = false;
-    private int activatingRangeFromPlayer = 3;
+    private int activatingRangeFromPlayer = ConfigHandler.coilRadius;
 
 
 	private boolean isActivated() {
