@@ -46,3 +46,4 @@ Ordinastie_
 <ghz|afk> but you have limited java knowledge  
 <secknv> i cry  
 ```
+![y u do dis mojan](mccode.PNG)

@@ -12,6 +12,7 @@ public class NkItems {
 	public static Item REDSTONE_INGOT = new ItemNk("redstone_ingot");
 	public static Item COPPER_INGOT = new ItemNk("copper_ingot");
 	public static Item COPPER_WIRE = new ItemNk("copper_wire");
+	public static Item TEST_ITEM = new ItemTest();
 
 
 	public static void register() {
@@ -20,6 +21,7 @@ public class NkItems {
 		registerItem(REDSTONE_INGOT);
 		registerItem(COPPER_INGOT);
 		registerItem(COPPER_WIRE);
+		registerItem(TEST_ITEM);
 	}
 	
 	public static void registerItem(Item item) {
@@ -32,6 +34,7 @@ public class NkItems {
 		registerRender(REDSTONE_INGOT);
 		registerRender(COPPER_INGOT);
 		registerRender(COPPER_WIRE);
+		registerRender(TEST_ITEM);
 	}
 	
 	public static void registerRender(Item item) {
