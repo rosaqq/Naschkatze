@@ -1,7 +1,7 @@
 ﻿# Naschkatze
 A Minecraft Mod  
 
-#### Requires Forge 12.18.1.2011+  
+#### Requires Forge 12.18.3.2185+  
 
 Work in progress!
 Ditched the copper & coil stuff to start with a uranium processing related mod!
