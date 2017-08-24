@@ -17,7 +17,6 @@ public class NkItems {
 
 	public static void register() {
 
-        NkCompassOverride.asdf();
 		registerItem(REDSTONE_INGOT);
 		registerItem(COPPER_INGOT);
 		registerItem(COPPER_WIRE);

@@ -13,19 +13,16 @@ import net.secknv.nkmod.reference.Reference;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class NkBlocks {
 	
-	public static Block URANIUM_ORE = new BlockTestBlock();
-	public static Block TEST_BLOCK = new BlockNkOre("copper_ore", 1);
-	public static Block COPPER_ORE = new BlockNkOre("uranium_ore", 2);
-	public static Block COPPER_COIL = new BlockCoil();
-	public static Block COPPER_BLOCK = new BlockNk("copper_block", Material.IRON, SoundType.METAL, 5.0F, 10.0F);
+	public static Block URANIUM_ORE = new BlockNkOre("uranium_ore", 2);
+	public static Block TEST_BLOCK = new BlockTestBlock();
+	public static Block GRINDER = new BlockNkGrinder();
+
 	
 	public static void register() {
 
 		registerBlock(URANIUM_ORE);
 		registerBlock(TEST_BLOCK);
-		registerBlock(COPPER_ORE);
-		registerBlock(COPPER_COIL);
-		registerBlock(COPPER_BLOCK);
+		registerBlock(GRINDER);
 	}
 	
 	public static void registerBlock(Block block) {
@@ -40,9 +37,7 @@ public class NkBlocks {
 
 		registerRender(URANIUM_ORE);
 		registerRender(TEST_BLOCK);
-		registerRender(COPPER_ORE);
-		registerRender(COPPER_COIL);
-		registerRender(COPPER_BLOCK);
+		registerRender(GRINDER);		
 	}
 
 	public static void registerRender(Block block) {

@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "nkmod:blocks/copper_block",
+        "front": "nkmod:blocks/grinder_front",
+        "side": "nkmod:blocks/grinder"
+    }
+}

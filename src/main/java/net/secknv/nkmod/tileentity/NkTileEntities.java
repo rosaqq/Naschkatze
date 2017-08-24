@@ -7,6 +7,6 @@ public class NkTileEntities {
 
 	public static void register() {
 
-        GameRegistry.registerTileEntity(TileEntityCoil.class, "nkmod.copper_coil");
+        GameRegistry.registerTileEntity(TileEntityNkGrinder.class, "nkmod.grinder");
     }
 }

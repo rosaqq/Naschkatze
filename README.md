@@ -3,16 +3,8 @@ A Minecraft Mod
 
 #### Requires Forge 12.18.1.2011+  
 
-The mod has a creative tab for all it's stuff.  
-The survival additions right now are:  
-- Copper Ore  
-- Copper Ingot (smelt ore)  
-- Copper Block (9 ingots in the crafting table)  
-- Copper Wire (3 copper ingots in a line)  
-- Copper Coil (8 copper wire in a chest-like pattern with one wooden plank in the middle)  
-
-When you redstone power a coil, it will make all compasses point to it if they are within a \[CONFIGURABLE, default=3] block radius of the coil.  
-If you are in range of multiple powered coils, compass will point to the closest one.
+Work in progress!
+Ditched the copper & coil stuff to start with a uranium processing related mod!
 
 ### Special Thanks
 This mod would not be possible without the patitence and constant assistance of many people from the #minecraftforge IRC.  

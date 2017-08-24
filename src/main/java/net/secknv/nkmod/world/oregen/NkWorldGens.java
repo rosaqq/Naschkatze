@@ -13,7 +13,6 @@ public class NkWorldGens {
     public static void register() {
 
         registerWorldGen(new WorldGenNkOre(NkBlocks.URANIUM_ORE, 10, 6, 0, 60), 0);
-        registerWorldGen(new WorldGenNkOre(NkBlocks.COPPER_ORE, 12, 14, 0, 80), 0);
     }
 
     public static void registerWorldGen(IWorldGenerator generator, int modGenerationWeight) {

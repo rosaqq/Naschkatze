@@ -10,7 +10,7 @@ tile.nkmod.uranium_ore.name=Uranium Ore
 tile.nkmod.copper_ore.name=Copper Ore
 tile.nkmod.test_block.name=Test Block
 tile.nkmod.copper_block.name=Copper Block
-tile.nkmod.copper_coil.name=Copper Coil
+tile.nkmod.grinder.name=Grinder
 
 # other
 itemGroup.tabNk=Naschkatze

@@ -8,8 +8,8 @@ import net.secknv.nkmod.item.NkItems;
 public class RecipesSmelting {
 
 	public static void registerRecipes() {
+		//recipes
 
-		GameRegistry.addSmelting(NkBlocks.COPPER_ORE, new ItemStack(NkItems.COPPER_INGOT, 1), 0.7F);
 	}
 
 }
