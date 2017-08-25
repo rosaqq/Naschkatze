@@ -19,7 +19,6 @@ import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityLockable;
@@ -28,6 +27,7 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.secknv.nkmod.recipes.GrinderRecipes;
 
 public class TileEntityNkGrinder extends TileEntityLockable implements ITickable, ISidedInventory{
 	
@@ -225,7 +225,7 @@ public class TileEntityNkGrinder extends TileEntityLockable implements ITickable
         if (!this.worldObj.isRemote) {
             if (this.isBurning() || this.grinderItemStacks[1] != null && this.grinderItemStacks[0] != null) {
             	
-                if (!this.isBurning() && this.canSmelt()) {
+                if (!this.isBurning() && this.canGrind()) {
                     this.grinderBurnTime = getItemBurnTime(this.grinderItemStacks[1]);
                     this.currentItemBurnTime = this.grinderBurnTime;
 
@@ -245,7 +245,7 @@ public class TileEntityNkGrinder extends TileEntityLockable implements ITickable
                     }
                 }
 
-                if (this.isBurning() && this.canSmelt())
+                if (this.isBurning() && this.canGrind())
                 {
                     ++this.cookTime;
 
@@ -285,17 +285,16 @@ public class TileEntityNkGrinder extends TileEntityLockable implements ITickable
     }
 
     /**
-     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
+     * Returns true if the grinder can grind an item, i.e. has a source item, destination stack isn't full, etc.
+     * --secknv
      */
-    private boolean canSmelt()
-    {
-        if (this.grinderItemStacks[0] == null)
-        {
+    private boolean canGrind() {
+    	
+        if (this.grinderItemStacks[0] == null) {
             return false;
         }
-        else
-        {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.grinderItemStacks[0]);
+        else {
+            ItemStack itemstack = GrinderRecipes.instance().getGrindResult(this.grinderItemStacks[0]);
             if (itemstack == null) return false;
             if (this.grinderItemStacks[2] == null) return true;
             if (!this.grinderItemStacks[2].isItemEqual(itemstack)) return false;
@@ -306,12 +305,16 @@ public class TileEntityNkGrinder extends TileEntityLockable implements ITickable
 
     /**
      * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
+     * 
+     * grinderItemStacks[0] is input
+     * grinderItemStacks[1] is fuel
+     * grinderItemStacks[2] is output
      */
     public void smeltItem()
     {
-        if (this.canSmelt())
+        if (this.canGrind())
         {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.grinderItemStacks[0]);
+            ItemStack itemstack = GrinderRecipes.instance().getGrindResult(this.grinderItemStacks[0]);
 
             if (this.grinderItemStacks[2] == null)
             {
