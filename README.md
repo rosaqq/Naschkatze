@@ -1,7 +1,15 @@
 ﻿# Naschkatze
-A Minecraft Mod  
-
-#### Requires Forge 12.18.3.2185+  
+A Minecraft Mod
 
 ### Mod revamp plan
-- [ ] TBD
+- [ ] Move to 1.16
+  - [ ] Items
+  - [ ] Blocks
+  - [ ] Recipes
+  - [ ] TileEntities
+  - [ ] WorldGen
+  - [ ] Creative tab
+- [ ] A new direction: Atomkraft
+  - [ ] Remove odd ends
+  - [ ] Uranium ore to fission
+    - [ ] Create roadmap
