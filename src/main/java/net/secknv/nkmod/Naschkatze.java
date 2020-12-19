@@ -1,53 +1,95 @@
 package net.secknv.nkmod;
 
+import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.secknv.nkmod.block.NkBlocks;
-import net.secknv.nkmod.handler.ConfigHandler;
-import net.secknv.nkmod.item.NkItems;
-import net.secknv.nkmod.proxy.IProxy;
-import net.secknv.nkmod.recipes.RecipesCrafting;
-import net.secknv.nkmod.recipes.RecipesSmelting;
-import net.secknv.nkmod.reference.Reference;
-import net.secknv.nkmod.tileentity.NkTileEntities;
-import net.secknv.nkmod.util.LogHelper;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Reference.MOD_ID, name=Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
-public class Naschkatze{
+import java.util.stream.Collectors;
 
-	@Mod.Instance(Reference.MOD_ID)
-	public static Naschkatze instance;
-	
-	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
-	public static IProxy proxy;
-    
+@Mod(Naschkatze.MODID)
+public class Naschkatze {
+
+
+    public static final String MODID = "nkmod";
+	private static final Logger LOGGER = LogManager.getLogger();
+
+	// original tab code
+	// todo: creative tab 1.16?
 	public static final NkTab tabNk = new NkTab("tabNk");
-	
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event){
-    	
-    	ConfigHandler.init(event.getSuggestedConfigurationFile());
-        MinecraftForge.EVENT_BUS.register(new ConfigHandler());
 
-    	NkItems.register();
-    	NkBlocks.register();
-    }
+	public Naschkatze() {
+		// Register the setup method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+		// Register the enqueueIMC method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+		// Register the processIMC method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+		// Register the doClientStuff method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event){
-    	
-    	proxy.registerRenders();
-    	proxy.registerWorldGen();
-    	NkTileEntities.register();
-    	RecipesCrafting.registerRecipes();
-    	RecipesSmelting.registerRecipes();
-    }
-    
-    @Mod.EventHandler
-    public void postInit(FMLInitializationEvent event){
-    	
-    }
+		// Register ourselves for server and other game events we are interested in
+		MinecraftForge.EVENT_BUS.register(this);
+
+		RegistryHandler.init();
+	}
+
+	private void setup(final FMLCommonSetupEvent event) {
+		// pre init code
+		LOGGER.info("nkmod pre init");
+
+		// original nk pre init
+		// todo: upgrade to 1.16
+		// ConfigHandler.init(event.getSuggestedConfigurationFile());
+		// inecraftForge.EVENT_BUS.register(new ConfigHandler());
+
+		// NkItems.register();
+		// NkBlocks.register();
+
+	}
+
+	private void doClientStuff(final FMLClientSetupEvent event) {
+		// do something that can only be done on the client
+		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+	}
+
+	private void enqueueIMC(final InterModEnqueueEvent event) {
+		// some example code to dispatch IMC to another mod
+		InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+	}
+
+	private void processIMC(final InterModProcessEvent event) {
+		// some example code to receive and process InterModComms from other mods
+		LOGGER.info("Got IMC {}", event.getIMCStream().
+				map(m->m.getMessageSupplier().get()).
+				collect(Collectors.toList()));
+	}
+
+	// You can use SubscribeEvent and let the Event Bus discover methods to call
+	@SubscribeEvent
+	public void onServerStarting(FMLServerStartingEvent event) {
+		// do something when the server starts
+		LOGGER.info("HELLO from server starting");
+	}
+
+	// You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
+	// Event bus for receiving Registry Events)
+	@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegistryEvents {
+		@SubscribeEvent
+		public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
+			// register a new block here
+			LOGGER.info("HELLO from Register Block");
+		}
+	}
 }

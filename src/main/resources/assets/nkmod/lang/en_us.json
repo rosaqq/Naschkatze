@@ -1,0 +1,12 @@
+{
+  "item.nkmod.redstone_ingot": "Redstone Ingot",
+  "item.nkmod.copper_ingot": "Copper Ingot",
+  "item.nkmod.copper_wire": "Copper Wire",
+  "item.nkmod.test_item": "Best Item",
+  "tile.nkmod.uranium_ore": "Uranium Ore",
+  "tile.nkmod.copper_ore": "Copper Ore",
+  "tile.nkmod.test_block": "Test Block",
+  "tile.nkmod.copper_block": "Copper Block",
+  "tile.nkmod.grinder": "Grinder",
+  "itemGroup.tabNk": "Naschkatze"
+}
