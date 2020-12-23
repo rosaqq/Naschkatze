@@ -2,14 +2,8 @@
 A Minecraft Mod
 
 ### Mod revamp plan
-- [ ] Move to 1.16
-  - [ ] Items
-  - [ ] Blocks
-  - [ ] Recipes
-  - [ ] TileEntities
-  - [ ] WorldGen
-  - [ ] Creative tab
+- [x] Move to 1.16
 - [ ] A new direction: Atomkraft
-  - [ ] Remove odd ends
+  - [x] Remove odd ends
   - [ ] Uranium ore to fission
     - [ ] Create roadmap

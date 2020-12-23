@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "nkmod:items/test_item"
+    "layer0": "nkmod:items/uranium_ingot"
   }
 }
