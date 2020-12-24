@@ -6,11 +6,6 @@
 run/
 # Files from Forge MDK
 changelog.txt
-CREDITS.txt
-FORGE-LICENSE.txt
-LICENSE-Paulscode IBXM Library.txt
-LICENSE-Paulscode SoundSystem CodecIBXM.txt
-README.txt
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
