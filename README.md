@@ -5,8 +5,28 @@ A Minecraft Mod
 - [x] Move to 1.16
 - [ ] A new direction: Atomkraft
   - [x] Remove odd ends
+  - [ ] Supporting characters
+    - [ ] Nuclear graphite
+    - [ ] Heavy water
+    - [ ] Control rods (TBD)
   - [ ] Uranium ore to fission
-    - [ ] Create roadmap
+    - [ ] Uraninite Ore
+      - [ ] Grinder
+      - [ ] Crushed Uraninite
+      - [ ] Acid leaching
+    - [ ] Yellowcake
+    - [ ] Refined UO2 / Natural Uranium Metal (via smelting)
+    - [ ] Chicago Pile 1
+  - [ ] Age of enrichment
+    - [ ] UF6
+    - [ ] Gas Centrifuges
+    - [ ] Enriched UO2
+    - [ ] Fuel Pellets
+    - [ ] Fuel Rods
+  - [ ] Production chain improvements
+    - [ ] In-situ leaching
+      - [ ] TBD
+  
 
 
 ## Project Setup Instructions
