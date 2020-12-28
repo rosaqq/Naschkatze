@@ -1,6 +1,6 @@
 {
   "item.nkmod.uranium_ingot": "Uranium Ingot",
-  "block.nkmod.uranium_ore": "Uranium Ore",
+  "block.nkmod.uraninite_ore": "Uraninite Ore",
   "block.nkmod.grinder": "Grinder",
 
   "itemGroup.tabNk": "Naschkatze"

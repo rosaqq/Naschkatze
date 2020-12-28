@@ -7,7 +7,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.secknv.nkmod.blocks.GrinderBlock;
-import net.secknv.nkmod.blocks.UraniumOreBlock;
+import net.secknv.nkmod.blocks.UraniniteOreBlock;
 import net.secknv.nkmod.items.BlockItemBase;
 import net.secknv.nkmod.items.NkItem;
 
@@ -26,10 +26,10 @@ public class RegistryHandler {
     public static final RegistryObject<Item> URANIUM_INGOT = ITEMS.register("uranium_ingot", NkItem::new);
 
     // register blocks
-    public static final RegistryObject<Block> URANIUM_ORE = BLOCKS.register("uranium_ore", UraniumOreBlock::new);
+    public static final RegistryObject<Block> URANIUM_ORE = BLOCKS.register("uraninite_ore", UraniniteOreBlock::new);
     public static final RegistryObject<Block> GRINDER = BLOCKS.register("grinder", GrinderBlock::new);
 
     // block items
-    public static final RegistryObject<Item> URANIUM_ORE_ITEM = ITEMS.register("uranium_ore", () -> new BlockItemBase(URANIUM_ORE.get()));
+    public static final RegistryObject<Item> URANIUM_ORE_ITEM = ITEMS.register("uraninite_ore", () -> new BlockItemBase(URANIUM_ORE.get()));
     public static final RegistryObject<Item> GRINDER_ITEM = ITEMS.register("grinder", () -> new BlockItemBase(GRINDER.get()));
 }
