@@ -5,9 +5,9 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.secknv.nkmod.Naschkatze;
 
-public class BlockItemBase extends BlockItem {
+public class NkBlockItem extends BlockItem {
 
-    public BlockItemBase(Block blockIn) {
+    public NkBlockItem(Block blockIn) {
         super(blockIn, new Item.Properties().group(Naschkatze.TAB));
     }
 }

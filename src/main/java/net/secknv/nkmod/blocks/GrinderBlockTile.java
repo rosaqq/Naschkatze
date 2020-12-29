@@ -1,6 +1,7 @@
 package net.secknv.nkmod.blocks;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -15,14 +16,14 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import static net.secknv.nkmod.blocks.ModBlocks.GRINDER_TILE;
+import static net.secknv.nkmod.RegistryHandler.*;
 
 public class GrinderBlockTile extends TileEntity implements ITickableTileEntity {
 
     private LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
 
     public GrinderBlockTile() {
-        super(GRINDER_TILE);
+        super(GRINDER_TILE.get());
     }
 
     @Override
@@ -46,7 +47,19 @@ public class GrinderBlockTile extends TileEntity implements ITickableTileEntity 
     }
 
     private IItemHandler createHandler() {
-        return new ItemStackHandler(1);
+        return new ItemStackHandler(1) {
+            @Override public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+                return stack.getItem() == URANINITE_ORE_ITEM.get();
+            }
+
+            @Override
+            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+                if (stack.getItem() != URANINITE_ORE_ITEM.get()) {
+                    return stack;
+                }
+                return super.insertItem(slot, stack, simulate);
+            }
+        };
     }
 
     @Nonnull

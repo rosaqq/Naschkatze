@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.secknv.nkmod.blocks.GrinderBlock;
 import net.secknv.nkmod.blocks.GrinderBlockTile;
 import net.secknv.nkmod.blocks.UraniniteOreBlock;
-import net.secknv.nkmod.items.BlockItemBase;
+import net.secknv.nkmod.items.NkBlockItem;
 import net.secknv.nkmod.items.NkItem;
 
 public class RegistryHandler {
@@ -37,8 +37,8 @@ public class RegistryHandler {
     public static final RegistryObject<Block> GRINDER = BLOCKS.register("grinder", GrinderBlock::new);
 
     // block items
-    public static final RegistryObject<Item> URANINITE_ORE_ITEM = ITEMS.register("uraninite_ore", () -> new BlockItemBase(URANINITE_ORE.get()));
-    public static final RegistryObject<Item> GRINDER_ITEM = ITEMS.register("grinder", () -> new BlockItemBase(GRINDER.get()));
+    public static final RegistryObject<Item> URANINITE_ORE_ITEM = ITEMS.register("uraninite_ore", () -> new NkBlockItem(URANINITE_ORE.get()));
+    public static final RegistryObject<Item> GRINDER_ITEM = ITEMS.register("grinder", () -> new NkBlockItem(GRINDER.get()));
 
     // block TE
     public static final RegistryObject<TileEntityType<GrinderBlockTile>> GRINDER_TILE = TILES.register("grinder", () -> TileEntityType.Builder.create(GrinderBlockTile::new, GRINDER.get()).build(null));
