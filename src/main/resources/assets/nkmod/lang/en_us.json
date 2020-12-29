@@ -3,5 +3,7 @@
   "block.nkmod.uraninite_ore": "Uraninite Ore",
   "block.nkmod.grinder": "Grinder",
 
+  "screen.nkmod.grinder": "Grinder GUI",
+
   "itemGroup.tabNk": "Naschkatze"
 }

@@ -4,11 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.secknv.nkmod.blocks.GrinderBlock;
+import net.secknv.nkmod.blocks.GrinderBlockContainer;
 import net.secknv.nkmod.blocks.GrinderBlockTile;
 import net.secknv.nkmod.blocks.UraniniteOreBlock;
 import net.secknv.nkmod.items.NkBlockItem;
@@ -42,4 +44,8 @@ public class RegistryHandler {
 
     // block TE
     public static final RegistryObject<TileEntityType<GrinderBlockTile>> GRINDER_TILE = TILES.register("grinder", () -> TileEntityType.Builder.create(GrinderBlockTile::new, GRINDER.get()).build(null));
+
+    // Block Containers
+    public static final RegistryObject<ContainerType<GrinderBlockContainer>> GRINDER_CONTAINER = CONTAINERS.register("grinder", () -> IForgeContainerType.create((windowId, inv, data) -> new GrinderBlockContainer(windowId, inv.player.getEntityWorld(), data.readBlockPos(), inv, inv.player)));
+
 }
