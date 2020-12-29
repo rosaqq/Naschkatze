@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "nkmod:block/uranium_ore" }
+    "": { "model": "nkmod:block/uraninite_ore" }
   }
 }
