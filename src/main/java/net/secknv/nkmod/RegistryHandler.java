@@ -32,7 +32,11 @@ public class RegistryHandler {
     }
 
     // register item
+    public static final RegistryObject<Item> CRUSHED_URANINITE = ITEMS.register("crushed_uraninite", NkItem::new);
+    public static final RegistryObject<Item> YELLOWCAKE = ITEMS.register("yellowcake", NkItem::new);
     public static final RegistryObject<Item> URANIUM_INGOT = ITEMS.register("uranium_ingot", NkItem::new);
+    public static final RegistryObject<Item> UO2_INGOT = ITEMS.register("uo2_ingot", NkItem::new);
+    public static final RegistryObject<Item> GRAPHITE_INGOT = ITEMS.register("graphite_ingot", NkItem::new);
 
     // register blocks
     public static final RegistryObject<Block> URANINITE_ORE = BLOCKS.register("uraninite_ore", UraniniteOreBlock::new);

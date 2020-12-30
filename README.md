@@ -17,6 +17,7 @@ A Minecraft Mod
     - [ ] Yellowcake
     - [ ] Refined UO2 / Natural Uranium Metal (via smelting)
     - [ ] Chicago Pile 1
+      - Uranium oxide ingots, uranium metal, graphite blocks, control rods, neutron detector;
   - [ ] Age of enrichment
     - [ ] UF6
     - [ ] Gas Centrifuges
