@@ -5,23 +5,38 @@ A Minecraft Mod
 - [x] Move to 1.16
 - [ ] A new direction: Atomkraft
   - [x] Remove odd ends
-  - [ ] Supporting characters
-    - [ ] Nuclear graphite
-    - [ ] Heavy water
-    - [ ] Control rods (TBD)
   - [ ] Uranium ore to fission
-    - [ ] Uraninite Ore
+    - [ ] Uraninite Ore Processing
       - [ ] Grinder
       - [ ] Crushed Uraninite
-      - [ ] Acid leaching
-    - [ ] Yellowcake
-    - [ ] Refined UO2 / Natural Uranium Metal (via smelting)
+      - [ ] Acid leaching (H2SO4)
+      - [ ] Force hexavalent oxidation state
+      - [ ] Yellowcake (precipitate by adding with NaOH)
+      - [ ] Uranium Trioxide (500ºC air)
+      - [ ] Uranium Dioxide (500-600ºC hydrogen reduction)
     - [ ] Chicago Pile 1
-      - Uranium oxide ingots, uranium metal, graphite blocks, control rods, neutron detector;
+      - [ ] Natural uranium dioxide pellets
+      - [ ] Nuclear graphite bricks
+        - Produced via the Acheson process.
+        - Mixture of 50% quartz dust, 40% coke powder, 7% sawdust and 3% salt.
+        - Heat in a graphite electrode furnace (SiC forms at 1600-2500ºC (wikipedia) / 2700ºC (Materials Handbook by François Cardarelli, p. 627))
+        - Keep heating, and the silicon will vaporize leaving high purity graphite behind (US patent 568323)
+      - [ ] Control rods (Cadmium based?)
+      - [ ] Neutron detector
+  - [ ] Advanced Uranium Processing
+    - Uranium Tetrafluoride (UO2 + 4HF -> UF4 + H2O)
+    - [ ] Natural Uranium Metal
+      - [ ] Thermal reduction of halide compounds:
+        - UF4 + Ca -> U + 2(CaF2) ... High cost for pure Ca, but simpler process
+        - UF + 2Mg -> U + 2(MgF2) ... Low cost for pure Mg, but a more complex process
+  - [ ] Natural Uranium Reactors
+    - [ ] Heavy water
+    - [ ] ...
   - [ ] Age of enrichment
-    - [ ] UF6
+    - [ ] UF6 (Fluorine Oxidation)
     - [ ] Gas Centrifuges
-    - [ ] Enriched UO2
+    - [ ] Enriched UO2 (IDR method: 200ºC steam + H2 -> UO2 + HF)
+    - [ ] HEU
     - [ ] Fuel Pellets
     - [ ] Fuel Rods
   - [ ] Production chain improvements
