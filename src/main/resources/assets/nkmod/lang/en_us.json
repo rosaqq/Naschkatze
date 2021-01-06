@@ -1,5 +1,8 @@
 {
   "item.nkmod.uranium_ingot": "Uranium Ingot",
+  "item.nkmod.crushed_uraninite": "Crushed Uraninite",
+  "item.nkmod.yellowcake": "Yellowcake",
+
   "block.nkmod.uraninite_ore": "Uraninite Ore",
   "block.nkmod.grinder": "Grinder",
 
