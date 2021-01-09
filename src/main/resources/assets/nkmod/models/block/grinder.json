@@ -1,10 +1,10 @@
 {
   "parent": "nkmod:block/machine",
   "textures": {
-    "top": "nkmod:blocks/grinder_top",
-    "front": "nkmod:blocks/grinder_front",
-    "back": "nkmod:blocks/grinder_back",
-    "bot": "nkmod:blocks/grinder_bot",
-    "side": "nkmod:blocks/grinder_sides"
+    "top": "nkmod:block/grinder_top",
+    "front": "nkmod:block/grinder_front",
+    "back": "nkmod:block/grinder_back",
+    "bot": "nkmod:block/grinder_bot",
+    "side": "nkmod:block/grinder_sides"
   }
 }
