@@ -1,7 +1,11 @@
 ﻿# Naschkatze
-A Minecraft Mod
+A Minecraft Mod  
+Jump to [Project Setup Instructions](#project-setup-instructions)
 
 ### Mod revamp plan
+
+Currently translating roadmap to issues -> [GitHub Project](https://github.com/rosaqq/Naschkatze/projects/1).  
+
 - [x] Move to 1.16
 - [ ] A new direction: Atomkraft
   - [x] Remove odd ends
@@ -53,17 +57,17 @@ http://mcforge.readthedocs.io/en/latest/gettingstarted/
 **Step 1:**
 - `git clone <this repo>`
 
-**Step 2:**
-- Eclipse instructions:
-  1. Install IntelliJ
-  2. Continue below ↓
-
-- IntelliJ instructions:
-  1. Open IDEA, select import project.
-  2. Select the build.gradle file on the import GUI.
-  3. Run `gradlew genIntellijRuns` in the project folder.
-  4. Refresh the Gradle Project if required.
-
+**Step 2: IntelliJ Setup**  
+1. Open IDEA, select import project.
+2. Select the build.gradle file on the import GUI.
+3. Run `gradlew genIntellijRuns` in the project folder.
+4. Refresh the Gradle Project if required.
+5. To get Thermal Expansion & Co. in dev env:
+   1. Create folder `dev_mods` in project root.
+   2. Add the [CoFH Core](https://www.curseforge.com/minecraft/mc-mods/cofh-core/files), [Thermal Foundation](https://www.curseforge.com/minecraft/mc-mods/thermal-foundation/files), and [Thermal Expansion](https://www.curseforge.com/minecraft/mc-mods/thermal-expansion/files) jars.  
+      (Currently using versions 1.16.3-1.1.6)
+   3. Gradle should take care of everything now.
+  
 - Nice to know gradle tasks:
   - `gradlew --refresh-dependencies` to refresh the local cache
   - `gradlew clean` to reset everything (code is untouched)
