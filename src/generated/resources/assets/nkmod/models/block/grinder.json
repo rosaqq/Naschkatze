@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "nkmod:block/grinder_bot",
+    "up": "nkmod:block/grinder_top",
+    "north": "nkmod:block/grinder_front",
+    "south": "nkmod:block/grinder_back",
+    "east": "nkmod:block/grinder_sides",
+    "west": "nkmod:block/grinder_sides"
+  }
+}

@@ -31,25 +31,25 @@ public class RegistryHandler {
         CONTAINERS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    // register item
+    // register blocks
+    public static final RegistryObject<Block> URANINITE_ORE = BLOCKS.register("uraninite_ore", UraniniteOreBlock::new);
+    public static final RegistryObject<Block> GRINDER = BLOCKS.register("grinder", GrinderBlock::new);
+
+    // register block items
+    public static final RegistryObject<Item> URANINITE_ORE_ITEM = ITEMS.register("uraninite_ore", () -> new NkBlockItem(URANINITE_ORE.get()));
+    public static final RegistryObject<Item> GRINDER_ITEM = ITEMS.register("grinder", () -> new NkBlockItem(GRINDER.get()));
+
+    // register block TEs
+    public static final RegistryObject<TileEntityType<GrinderBlockTile>> GRINDER_TILE = TILES.register("grinder", () -> TileEntityType.Builder.create(GrinderBlockTile::new, GRINDER.get()).build(null));
+
+    // register block containers
+    public static final RegistryObject<ContainerType<GrinderBlockContainer>> GRINDER_CONTAINER = CONTAINERS.register("grinder", () -> IForgeContainerType.create((windowId, inv, data) -> new GrinderBlockContainer(windowId, inv.player.getEntityWorld(), data.readBlockPos(), inv, inv.player)));
+
+    // register items
+    // todo: textures
     public static final RegistryObject<Item> CRUSHED_URANINITE = ITEMS.register("crushed_uraninite", NkItem::new);
     public static final RegistryObject<Item> YELLOWCAKE = ITEMS.register("yellowcake", NkItem::new);
     public static final RegistryObject<Item> URANIUM_INGOT = ITEMS.register("uranium_ingot", NkItem::new);
     public static final RegistryObject<Item> UO2_INGOT = ITEMS.register("uo2_ingot", NkItem::new);
     public static final RegistryObject<Item> GRAPHITE_INGOT = ITEMS.register("graphite_ingot", NkItem::new);
-
-    // register blocks
-    public static final RegistryObject<Block> URANINITE_ORE = BLOCKS.register("uraninite_ore", UraniniteOreBlock::new);
-    public static final RegistryObject<Block> GRINDER = BLOCKS.register("grinder", GrinderBlock::new);
-
-    // block items
-    public static final RegistryObject<Item> URANINITE_ORE_ITEM = ITEMS.register("uraninite_ore", () -> new NkBlockItem(URANINITE_ORE.get()));
-    public static final RegistryObject<Item> GRINDER_ITEM = ITEMS.register("grinder", () -> new NkBlockItem(GRINDER.get()));
-
-    // block TE
-    public static final RegistryObject<TileEntityType<GrinderBlockTile>> GRINDER_TILE = TILES.register("grinder", () -> TileEntityType.Builder.create(GrinderBlockTile::new, GRINDER.get()).build(null));
-
-    // Block Containers
-    public static final RegistryObject<ContainerType<GrinderBlockContainer>> GRINDER_CONTAINER = CONTAINERS.register("grinder", () -> IForgeContainerType.create((windowId, inv, data) -> new GrinderBlockContainer(windowId, inv.player.getEntityWorld(), data.readBlockPos(), inv, inv.player)));
-
 }

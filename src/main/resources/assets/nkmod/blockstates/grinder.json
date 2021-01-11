@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "nkmod:block/grinder" },
-    "facing=east": { "model": "nkmod:block/grinder", "y": 90 },
-    "facing=south": { "model": "nkmod:block/grinder", "y": 180 },
-    "facing=west": { "model": "nkmod:block/grinder", "y": 270 }
-  }
-}
