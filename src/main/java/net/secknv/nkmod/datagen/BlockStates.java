@@ -58,7 +58,6 @@ public class BlockStates extends BlockStateProvider {
                 });
     }
 
-    // todo: optimize -> do NOT create new ResourceLocations for the same texture
     private ResourceLocation[] getSidesArray(String bot, String top, String front, String back, String left, String right) {
         return new ResourceLocation[]{
                 new ResourceLocation(Naschkatze.MODID, "block/" + bot),

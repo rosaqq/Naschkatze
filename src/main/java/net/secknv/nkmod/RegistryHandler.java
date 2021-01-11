@@ -46,7 +46,6 @@ public class RegistryHandler {
     public static final RegistryObject<ContainerType<GrinderBlockContainer>> GRINDER_CONTAINER = CONTAINERS.register("grinder", () -> IForgeContainerType.create((windowId, inv, data) -> new GrinderBlockContainer(windowId, inv.player.getEntityWorld(), data.readBlockPos(), inv, inv.player)));
 
     // register items
-    // todo: textures
     public static final RegistryObject<Item> CRUSHED_URANINITE = ITEMS.register("crushed_uraninite", NkItem::new);
     public static final RegistryObject<Item> YELLOWCAKE = ITEMS.register("yellowcake", NkItem::new);
     public static final RegistryObject<Item> URANIUM_INGOT = ITEMS.register("uranium_ingot", NkItem::new);
