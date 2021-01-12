@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.secknv.nkmod.blocks.GrinderBlock;
 import net.secknv.nkmod.blocks.GrinderBlockContainer;
 import net.secknv.nkmod.blocks.GrinderBlockTile;
-import net.secknv.nkmod.blocks.UraniniteOreBlock;
+import net.secknv.nkmod.blocks.NkOreBlock;
 import net.secknv.nkmod.items.NkBlockItem;
 import net.secknv.nkmod.items.NkItem;
 
@@ -32,7 +32,7 @@ public class RegistryHandler {
     }
 
     // register blocks
-    public static final RegistryObject<Block> URANINITE_ORE = BLOCKS.register("uraninite_ore", UraniniteOreBlock::new);
+    public static final RegistryObject<Block> URANINITE_ORE = BLOCKS.register("uraninite_ore", () -> new NkOreBlock(2,3));
     public static final RegistryObject<Block> GRINDER = BLOCKS.register("grinder", GrinderBlock::new);
 
     // register block items
