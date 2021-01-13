@@ -11,8 +11,9 @@ Currently translating roadmap to issues -> [GitHub Project](https://github.com/r
   - [x] Remove odd ends
   - [ ] Uranium ore to fission
     - [ ] Uraninite Ore Processing
+      - [x] Uraninite Ore
       - [ ] Grinder
-      - [ ] Crushed Uraninite
+      - [x] Crushed Uraninite
       - [ ] Acid leaching (H2SO4)
       - [ ] Force hexavalent oxidation state
       - [ ] Yellowcake (precipitate by adding with NaOH)
