@@ -23,17 +23,17 @@ Currently translating roadmap to issues -> [GitHub Project](https://github.com/r
       - [ ] Force hexavalent oxidation state (NaClO3)
         - [ ] Sodium Chlorate production:
               NaCl + 3H2O -> NaClO3 + 3H2
-              High heat (>70ºC) and pH must be controlled (avoid increase).
+              High heat (>70°C) and pH must be controlled (avoid increase).
       - [ ] DEHPA solvent extraction
       - [ ] Yellowcake (precipitate by adding NH3(aq), dry into dust)
-      - [ ] Uranium Trioxide (ignite/smelt yellowcake 500ºC air)
-      - [ ] Uranium Dioxide (480ºC hydrogen reduction)
+      - [ ] Uranium Trioxide (ignite/smelt yellowcake 500°C air)
+      - [ ] Uranium Dioxide (480°C hydrogen reduction)
     - [ ] Chicago Pile 1
       - [ ] Natural uranium dioxide pellets
       - [ ] Nuclear graphite bricks
         - Produced via the Acheson process.
         - Mixture of 50% quartz dust, 40% coke powder, 7% sawdust and 3% salt.
-        - Heat in a graphite electrode furnace (SiC forms at 1600-2500ºC (wikipedia) / 2700ºC (Materials Handbook by François Cardarelli, p. 627))
+        - Heat in a graphite electrode furnace (SiC forms at 1600-2500°C (wikipedia) / 2700°C (Materials Handbook by François Cardarelli, p. 627))
         - Keep heating, and the silicon will vaporize leaving high purity graphite behind (US patent 568323)
       - [ ] Control rods (Cadmium based?)
       - [ ] Neutron detector
@@ -49,7 +49,7 @@ Currently translating roadmap to issues -> [GitHub Project](https://github.com/r
   - [ ] Age of enrichment
     - [ ] UF6 (Fluorine Oxidation)
     - [ ] Gas Centrifuges
-    - [ ] Enriched UO2 (IDR method: 200ºC steam + H2 -> UO2 + HF)
+    - [ ] Enriched UO2 (IDR method: 200°C steam + H2 -> UO2 + HF)
     - [ ] HEU
     - [ ] Fuel Pellets
     - [ ] Fuel Rods
