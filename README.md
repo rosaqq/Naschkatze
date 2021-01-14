@@ -5,6 +5,7 @@ Jump to [Project Setup Instructions](#project-setup-instructions)
 ### Mod revamp plan
 
 Currently translating roadmap to issues -> [GitHub Project](https://github.com/rosaqq/Naschkatze/projects/1).  
+Information is also being migrated to the wiki -> [Project Wiki]()
 
 - [x] Move to 1.16
 - [ ] A new direction: Atomkraft
@@ -15,17 +16,10 @@ Currently translating roadmap to issues -> [GitHub Project](https://github.com/r
       - [ ] Grinder
       - [x] Crushed Uraninite
       - [ ] Acid leaching (H2SO4)
-        - Sulfuric Acid production:
-          S + O2 -> SO2 (sulfur is burned, gas target temperature = 450°C)
-          2SO2 + O2 <-> 2SO3 (Vanadium(V) oxide catalyst)
-          SO3 + H2O -> H2SO4(g) (highly exothermic)
-          Acid must be condensed into liquid.
-      - [ ] Force hexavalent oxidation state (NaClO3)
-        - [ ] Sodium Chlorate production:
-              NaCl + 3H2O -> NaClO3 + 3H2
-              High heat (>70°C) and pH must be controlled (avoid increase).
+      - [ ] Force hexavalent oxidation with sodium Chlorate
       - [ ] DEHPA solvent extraction
-      - [ ] Yellowcake (precipitate by adding NH3(aq), dry into dust)
+      - [ ] Ammonia for precipitation
+      - [ ] Yellowcake
       - [ ] Uranium Trioxide (ignite/smelt yellowcake 500°C air)
       - [ ] Uranium Dioxide (480°C hydrogen reduction)
     - [ ] Chicago Pile 1
