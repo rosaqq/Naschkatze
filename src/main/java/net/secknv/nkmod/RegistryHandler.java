@@ -1,18 +1,22 @@
 package net.secknv.nkmod;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.inventory.container.FurnaceContainer;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.secknv.nkmod.blocks.GrinderBlock;
-import net.secknv.nkmod.blocks.GrinderBlockContainer;
-import net.secknv.nkmod.blocks.GrinderBlockTile;
-import net.secknv.nkmod.blocks.NkOreBlock;
+import net.secknv.nkmod.blocks.*;
 import net.secknv.nkmod.items.NkBlockItem;
 import net.secknv.nkmod.items.NkItem;
 
@@ -33,7 +37,9 @@ public class RegistryHandler {
 
     // register blocks
     public static final RegistryObject<Block> URANINITE_ORE = BLOCKS.register("uraninite_ore", () -> new NkOreBlock(2,3));
-    public static final RegistryObject<Block> GRINDER = BLOCKS.register("grinder", GrinderBlock::new);
+    // todo: document MachineBlock
+    public static final RegistryObject<Block> GRINDER = BLOCKS.register("grinder", () -> new MachineBlock(GrinderBlockContainer::new, GrinderBlockTile::new));
+
 
     // register block items
     public static final RegistryObject<Item> URANINITE_ORE_ITEM = ITEMS.register("uraninite_ore", () -> new NkBlockItem(URANINITE_ORE.get()));
