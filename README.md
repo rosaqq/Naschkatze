@@ -5,7 +5,7 @@ Jump to [Project Setup Instructions](#project-setup-instructions)
 ### Mod revamp plan
 
 Currently translating roadmap to issues -> [GitHub Project](https://github.com/rosaqq/Naschkatze/projects/1).  
-Information is also being migrated to the wiki -> [Project Wiki]()
+Information is also being migrated to the wiki -> [Project Wiki](https://github.com/rosaqq/Naschkatze/wiki).
 
 - [x] Move to 1.16
 - [ ] A new direction: Atomkraft
