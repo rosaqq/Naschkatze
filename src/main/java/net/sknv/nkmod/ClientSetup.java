@@ -1,10 +1,10 @@
-package net.secknv.nkmod;
+package net.sknv.nkmod;
 
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.secknv.nkmod.blocks.GrinderBlockScreen;
+import net.sknv.nkmod.blocks.GrinderBlockScreen;
 
 @Mod.EventBusSubscriber(modid = Naschkatze.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {

@@ -1,4 +1,4 @@
-package net.secknv.nkmod.blocks;
+package net.sknv.nkmod.blocks;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,7 +22,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import static net.secknv.nkmod.RegistryHandler.*;
+import static net.sknv.nkmod.RegistryHandler.*;
 
 public class GrinderBlockTile extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
 

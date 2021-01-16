@@ -1,4 +1,4 @@
-package net.secknv.nkmod.blocks;
+package net.sknv.nkmod.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

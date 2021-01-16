@@ -1,4 +1,4 @@
-package net.secknv.nkmod.world.gen.feature;
+package net.sknv.nkmod.world.gen.feature;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -16,8 +16,8 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.secknv.nkmod.Naschkatze;
-import net.secknv.nkmod.RegistryHandler;
+import net.sknv.nkmod.Naschkatze;
+import net.sknv.nkmod.RegistryHandler;
 
 @Mod.EventBusSubscriber(modid = "nkmod")
 public class NkOreGen {

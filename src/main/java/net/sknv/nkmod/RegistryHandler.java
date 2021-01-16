@@ -1,24 +1,20 @@
-package net.secknv.nkmod;
+package net.sknv.nkmod;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.FurnaceContainer;
-import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.secknv.nkmod.blocks.*;
-import net.secknv.nkmod.items.NkBlockItem;
-import net.secknv.nkmod.items.NkItem;
+import net.sknv.nkmod.blocks.GrinderBlockContainer;
+import net.sknv.nkmod.blocks.GrinderBlockTile;
+import net.sknv.nkmod.blocks.MachineBlock;
+import net.sknv.nkmod.blocks.NkOreBlock;
+import net.sknv.nkmod.items.NkBlockItem;
+import net.sknv.nkmod.items.NkItem;
 
 public class RegistryHandler {
     // create DeferredRegister object

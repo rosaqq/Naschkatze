@@ -1,7 +1,7 @@
-package net.secknv.nkmod.items;
+package net.sknv.nkmod.items;
 
 import net.minecraft.item.Item;
-import net.secknv.nkmod.Naschkatze;
+import net.sknv.nkmod.Naschkatze;
 
 public class NkItem extends Item {
 

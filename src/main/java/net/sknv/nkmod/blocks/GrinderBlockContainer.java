@@ -1,4 +1,4 @@
-package net.secknv.nkmod.blocks;
+package net.sknv.nkmod.blocks;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -12,8 +12,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-import static net.secknv.nkmod.RegistryHandler.GRINDER;
-import static net.secknv.nkmod.RegistryHandler.GRINDER_CONTAINER;
+import static net.sknv.nkmod.RegistryHandler.GRINDER;
+import static net.sknv.nkmod.RegistryHandler.GRINDER_CONTAINER;
 
 public class GrinderBlockContainer extends Container {
 
