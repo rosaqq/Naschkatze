@@ -1,9 +1,9 @@
-package net.secknv.nkmod.items;
+package net.sknv.nkmod.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.secknv.nkmod.Naschkatze;
+import net.sknv.nkmod.Naschkatze;
 
 public class NkBlockItem extends BlockItem {
 

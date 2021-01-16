@@ -1,4 +1,4 @@
-package net.secknv.nkmod.blocks;
+package net.sknv.nkmod.blocks;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

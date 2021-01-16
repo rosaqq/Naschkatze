@@ -1,11 +1,11 @@
-package net.secknv.nkmod.datagen;
+package net.sknv.nkmod.datagen;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.secknv.nkmod.Naschkatze;
-import net.secknv.nkmod.RegistryHandler;
+import net.sknv.nkmod.Naschkatze;
+import net.sknv.nkmod.RegistryHandler;
 
 public class Items extends ItemModelProvider {
 

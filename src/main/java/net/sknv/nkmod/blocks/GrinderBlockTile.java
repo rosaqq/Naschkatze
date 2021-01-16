@@ -1,4 +1,4 @@
-package net.secknv.nkmod.blocks;
+package net.sknv.nkmod.blocks;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,18 +18,17 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.sknv.nkmod.RegistryHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import static net.secknv.nkmod.RegistryHandler.*;
 
 public class GrinderBlockTile extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
 
     private LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
 
     public GrinderBlockTile() {
-        super(GRINDER_TILE.get());
+        super(RegistryHandler.GRINDER_TILE.get());
     }
 
     @Override
@@ -55,12 +54,12 @@ public class GrinderBlockTile extends TileEntity implements ITickableTileEntity,
     private IItemHandler createHandler() {
         return new ItemStackHandler(1) {
             @Override public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return stack.getItem() == URANINITE_ORE_ITEM.get();
+                return stack.getItem() == RegistryHandler.URANINITE_ORE_ITEM.get();
             }
 
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if (stack.getItem() != URANINITE_ORE_ITEM.get()) {
+                if (stack.getItem() != RegistryHandler.URANINITE_ORE_ITEM.get()) {
                     return stack;
                 }
                 return super.insertItem(slot, stack, simulate);

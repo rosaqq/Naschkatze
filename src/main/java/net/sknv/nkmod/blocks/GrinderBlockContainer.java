@@ -1,4 +1,4 @@
-package net.secknv.nkmod.blocks;
+package net.sknv.nkmod.blocks;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -11,9 +11,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-
-import static net.secknv.nkmod.RegistryHandler.GRINDER;
-import static net.secknv.nkmod.RegistryHandler.GRINDER_CONTAINER;
+import net.sknv.nkmod.RegistryHandler;
 
 public class GrinderBlockContainer extends Container {
 
@@ -22,7 +20,7 @@ public class GrinderBlockContainer extends Container {
     private IItemHandler playerInventory;
 
     public GrinderBlockContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
-        super(GRINDER_CONTAINER.get(), windowId);
+        super(RegistryHandler.GRINDER_CONTAINER.get(), windowId);
         tileEntity = world.getTileEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
@@ -46,7 +44,7 @@ public class GrinderBlockContainer extends Container {
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()), playerEntity, GRINDER.get());
+        return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()), playerEntity, RegistryHandler.GRINDER.get());
     }
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
