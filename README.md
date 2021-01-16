@@ -31,6 +31,8 @@ Information is also being migrated to the wiki -> [Project Wiki](https://github.
         - Keep heating, and the silicon will vaporize leaving high purity graphite behind (US patent 568323)
       - [ ] Control rods (Cadmium based?)
       - [ ] Neutron detector
+      - [ ] Criticality math (delayed and prompt)
+      - [ ] Radiation
   - [ ] Advanced Uranium Processing
     - Uranium Tetrafluoride (UO2 + 4HF -> UF4 + H2O)
     - [ ] Natural Uranium Metal
@@ -47,11 +49,17 @@ Information is also being migrated to the wiki -> [Project Wiki](https://github.
     - [ ] HEU
     - [ ] Fuel Pellets
     - [ ] Fuel Rods
+  - [ ] ...the abyss will also gaze into you
+    - [ ] Prompt supercritical runaway
+    - [ ] Demon core
+    - [ ] For all who take the sword will perish by the sword
   - [ ] Production chain improvements
     - [ ] In-situ leaching
       - [ ] TBD
-  
-
+  - [ ] Modern Reactors
+    - [ ] Reactor-grade enriched uranium
+    - [ ] Plutonium
+    - [ ] MOX
 
 ## Project Setup Instructions
 This is a MinecraftForge project ([homepage](http://minecraftforge.net/), [github](https://github.com/MinecraftForge/MinecraftForge)).  
