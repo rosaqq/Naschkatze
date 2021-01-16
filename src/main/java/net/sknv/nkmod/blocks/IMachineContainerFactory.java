@@ -7,5 +7,5 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface IMachineContainerFactory<T extends Container> {
-    T create(int windowId, World worldIn, BlockPos pos, PlayerInventory inv, PlayerEntity entity);
+    T create(int windowId, World worldIn, BlockPos pos, PlayerInventory playerInv, PlayerEntity playerEntity);
 }
