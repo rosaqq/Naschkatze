@@ -64,7 +64,7 @@ public class RegistryHandler {
 
     // register block TEs
     public static final RegistryObject<TileEntityType<GrinderTile>> GRINDER_TILE = TILES.register("grinder", () -> TileEntityType.Builder.create(GrinderTile::new, GRINDER.get()).build(null));
-    public static final RegistryObject<TileEntityType<ReactionChamberTile>> REACTIONCHAMBER_TILE = TILES.register("reaction_chamber", () -> TileEntityType.Builder.create(ReactionChamberTile::new, GRINDER.get()).build(null));
+    public static final RegistryObject<TileEntityType<ReactionChamberTile>> REACTIONCHAMBER_TILE = TILES.register("reaction_chamber", () -> TileEntityType.Builder.create(ReactionChamberTile::new, REACTIONCHAMBER.get()).build(null));
 
     // register block containers
     public static final RegistryObject<ContainerType<GrinderContainer>> GRINDER_CONTAINER = CONTAINERS.register("grinder", () -> IForgeContainerType.create((windowId, inv, data) -> new GrinderContainer(windowId, inv.player.getEntityWorld(), data.readBlockPos(), inv, inv.player)));
