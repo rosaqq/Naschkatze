@@ -31,5 +31,10 @@
       <option name="name" value="Progwml6 maven" />
       <option name="url" value="https://dvs1.progwml6.com/files/maven/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="http://maven.tterrag.com/" />
+    </remote-repository>
   </component>
 </project>

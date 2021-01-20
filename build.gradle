@@ -8,10 +8,27 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
+
+// gradle shadow plugin for tterrag's registrate
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+
+
+
+configurations {
+    shade
+}
+
+shadowJar {
+    configurations = [project.configurations.shade]
+    relocate 'com.tterrag.registrate', 'net.sknv.nkmod.repack.registrate'
+}
 
 // directory for mod jars to add to dev env
 def dev_mods_dir = "dev_mods"
@@ -20,6 +37,11 @@ repositories {
     maven {
         // JEI
         url = "https://dvs1.progwml6.com/files/maven/"
+    }
+
+    maven {
+        // tterrag's Registrate
+        url = "http://maven.tterrag.com/"
     }
 
     // Built mods
@@ -172,6 +194,9 @@ dependencies {
         runtimeOnly fg.deobf(it)
     }
 
+    def registrate = "com.tterrag.registrate:Registrate:MC${registrate_version}"
+    implementation fg.deobf(registrate)
+    shade registrate
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
