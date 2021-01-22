@@ -6,6 +6,7 @@ import net.minecraftforge.common.ToolType;
 
 public class NkOreBlock extends Block {
     /**
+     * Harvest Level must be set on registration!<br>
      * Harvest Level Reference:<br>
      * 0 -> Wood<br>
      * 1 -> Stone<br>
@@ -18,13 +19,9 @@ public class NkOreBlock extends Block {
      * 3 -> Most Ores<br>
      * 5 -> Block of Iron / Diamond<br>
      * 50 -> Obsidian<br>
-     * @param harvestLevel Tool grade required.
-     * @param hardness Affects breaking time.
+     * Hardness hardcoded to 3 due to most ores having 3.
      */
-    public NkOreBlock(int harvestLevel, int hardness) {
-        super(Block.Properties.create(Material.ROCK)
-                .harvestTool(ToolType.PICKAXE)
-                .harvestLevel(harvestLevel)
-                .hardnessAndResistance(hardness));
+    public NkOreBlock(Properties p) {
+        super(p.harvestTool(ToolType.PICKAXE).hardnessAndResistance(3));
     }
 }

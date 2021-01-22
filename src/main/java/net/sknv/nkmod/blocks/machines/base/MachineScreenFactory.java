@@ -2,6 +2,7 @@ package net.sknv.nkmod.blocks.machines.base;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.tterrag.registrate.builders.ContainerBuilder;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -13,7 +14,7 @@ import net.sknv.nkmod.Naschkatze;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class MachineScreenFactory<C extends Container> implements ScreenManager.IScreenFactory<C, ContainerScreen<C>> {
+public class MachineScreenFactory<C extends Container> implements ContainerBuilder.ScreenFactory<C, ContainerScreen<C>> {
 
     private final String textureLocation;
 

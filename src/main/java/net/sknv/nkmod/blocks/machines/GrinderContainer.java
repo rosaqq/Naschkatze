@@ -7,10 +7,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.NonNullConsumer;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import net.sknv.nkmod.Naschkatze;
 import net.sknv.nkmod.blocks.machines.base.AbstractMachineContainer;
 
-import static net.sknv.nkmod.RegistryHandler.GRINDER;
-import static net.sknv.nkmod.RegistryHandler.GRINDER_CONTAINER;
 
 public class GrinderContainer extends AbstractMachineContainer {
 
@@ -19,9 +18,11 @@ public class GrinderContainer extends AbstractMachineContainer {
     //     super(GRINDER_CONTAINER.get()
     // }
 
-    // new GrinderB
-    public GrinderContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
-        super(GRINDER_CONTAINER.get(), GRINDER, windowId, world, pos, playerInventory, player);
+    // new (windowId, inv.player.getEntityWorld(), data.readBlockPos(), inv, inv.player)
+    // (ContainerType<T> var1, int var2, PlayerInventory var3)
+    // old ctor
+    public GrinderContainer(int windowId, PlayerInventory inv, BlockPos pos) {
+        super(Naschkatze.GRINDER_CONTAINER.get(), Naschkatze.GRINDER, windowId, inv, pos);
     }
 
 

@@ -44,8 +44,8 @@ public abstract class AbstractMachineTile extends TileEntity implements ITickabl
 
     @Override
     @ParametersAreNonnullByDefault
-    public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-        return containerFactory.create(i, world, pos, playerInventory, playerEntity);
+    public Container createMenu(int i, PlayerInventory inv, PlayerEntity playerEntity) {
+        return containerFactory.create(i, inv, pos);
     }
 
     @Override

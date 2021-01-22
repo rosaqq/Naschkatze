@@ -16,11 +16,11 @@ plugins {
 
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
 
-
+// shadow config
 configurations {
     shade
 }
@@ -29,6 +29,7 @@ shadowJar {
     configurations = [project.configurations.shade]
     relocate 'com.tterrag.registrate', 'net.sknv.nkmod.repack.registrate'
 }
+//  end shadow config
 
 // directory for mod jars to add to dev env
 def dev_mods_dir = "dev_mods"
@@ -56,6 +57,12 @@ archivesBaseName = "${mod_id}"
 
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+idea{
+    module {
+        downloadJavadoc = true
+    }
+}
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {

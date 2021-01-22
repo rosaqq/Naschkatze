@@ -5,7 +5,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.sknv.nkmod.Naschkatze;
-import net.sknv.nkmod.RegistryHandler;
+
+import java.rmi.registry.RegistryHandler;
 
 public class Items extends ItemModelProvider {
 
@@ -15,13 +16,13 @@ public class Items extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        singleTexture(RegistryHandler.CRUSHED_URANINITE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/crushed_uraninite"));
-        singleTexture(RegistryHandler.YELLOWCAKE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/yellowcake"));
-        singleTexture(RegistryHandler.URANIUM_INGOT.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/uranium_ingot"));
-        singleTexture(RegistryHandler.UO2_INGOT.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/uo2_ingot"));
-        singleTexture(RegistryHandler.GRAPHITE_INGOT.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/graphite_ingot"));
+        singleTexture(Naschkatze.CRUSHED_URANINITE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/crushed_uraninite"));
+        singleTexture(Naschkatze.YELLOWCAKE.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/yellowcake"));
+        singleTexture(Naschkatze.URANIUM_INGOT.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/uranium_ingot"));
+        singleTexture(Naschkatze.UO2_INGOT.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/uo2_ingot"));
+        singleTexture(Naschkatze.GRAPHITE_INGOT.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(Naschkatze.MODID, "item/graphite_ingot"));
 
-        withExistingParent(RegistryHandler.URANINITE_ORE_ITEM.get().getRegistryName().getPath(), new ResourceLocation(Naschkatze.MODID, "block/uraninite_ore"));
-        withExistingParent(RegistryHandler.GRINDER_ITEM.get().getRegistryName().getPath(), new ResourceLocation(Naschkatze.MODID, "block/grinder"));
+        withExistingParent(Naschkatze.URANINITE_ORE.get().asItem().getRegistryName().getPath(), new ResourceLocation(Naschkatze.MODID, "block/uraninite_ore"));
+        withExistingParent(Naschkatze.GRINDER.get().asItem().getRegistryName().getPath(), new ResourceLocation(Naschkatze.MODID, "block/grinder"));
     }
 }

@@ -1,5 +1,6 @@
 package net.sknv.nkmod.blocks.machines.base;
 
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -8,7 +9,6 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.common.util.NonNullConsumer;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -25,25 +25,14 @@ public abstract class AbstractMachineContainer extends Container {
     protected TileEntity tileEntity;
     protected PlayerEntity playerEntity;
     protected IItemHandler playerInventory;
-    protected RegistryObject<Block> blockRegistryObject;
+    protected RegistryEntry<MachineBlock> blockEntry;
 
-
-    /**
-     *
-     * @param type
-     * @param blockRegistryObject
-     * @param windowId
-     * @param world
-     * @param pos
-     * @param playerInventory
-     * @param player
-     */
-    public AbstractMachineContainer(@Nullable ContainerType<?> type, RegistryObject<Block> blockRegistryObject, int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
+    public AbstractMachineContainer(@Nullable ContainerType<?> type, RegistryEntry<MachineBlock> blockEntry, int windowId, PlayerInventory inv, BlockPos pos) {
         super(type, windowId);
-        tileEntity = world.getTileEntity(pos);
-        this.playerEntity = player;
-        this.playerInventory = new InvWrapper(playerInventory);
-        this.blockRegistryObject = blockRegistryObject;
+        tileEntity = inv.player.getEntityWorld().getTileEntity(pos);
+        this.playerEntity = inv.player;
+        this.playerInventory = new InvWrapper(inv);
+        this.blockEntry = blockEntry;
 
         if (tileEntity != null)
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandlerConsumerProvider());
@@ -56,7 +45,7 @@ public abstract class AbstractMachineContainer extends Container {
     @Override
     @ParametersAreNonnullByDefault
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return isWithinUsableDistance(IWorldPosCallable.of(Objects.requireNonNull(tileEntity.getWorld()), tileEntity.getPos()), playerEntity, blockRegistryObject.get());
+        return isWithinUsableDistance(IWorldPosCallable.of(Objects.requireNonNull(tileEntity.getWorld()), tileEntity.getPos()), playerEntity, blockEntry.get());
     }
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {

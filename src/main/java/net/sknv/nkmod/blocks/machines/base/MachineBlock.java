@@ -27,10 +27,8 @@ public class MachineBlock extends Block {
 
     private final Supplier<TileEntity> tileEntitySupplier;
 
-    public MachineBlock(Supplier<TileEntity> tileEntitySupplier) {
-        super(Properties.create(Material.IRON)
-                .sound(SoundType.METAL)
-                .hardnessAndResistance(2f));
+    public MachineBlock(Properties p, Supplier<TileEntity> tileEntitySupplier) {
+        super(p.sound(SoundType.METAL).hardnessAndResistance(2f));
         this.tileEntitySupplier = tileEntitySupplier;
     }
 

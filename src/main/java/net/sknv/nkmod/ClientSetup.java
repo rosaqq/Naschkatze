@@ -6,11 +6,14 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.sknv.nkmod.blocks.machines.base.MachineScreenFactory;
 
+import java.rmi.registry.RegistryHandler;
+/*
 @Mod.EventBusSubscriber(modid = Naschkatze.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {
 
     public static void init(final FMLClientSetupEvent event) {
-        ScreenManager.registerFactory(RegistryHandler.GRINDER_CONTAINER.get(), new MachineScreenFactory<>("textures/gui/grinder_gui.png"));
+        ScreenManager.registerFactory(Naschkatze.GRINDER_CONTAINER.get(), new MachineScreenFactory<>("textures/gui/grinder_gui.png"));
         ScreenManager.registerFactory(RegistryHandler.REACTIONCHAMBER_CONTAINER.get(), new MachineScreenFactory<>("textures/gui/grinder_gui.png"));
     }
 }
+*/

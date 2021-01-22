@@ -17,7 +17,6 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.sknv.nkmod.Naschkatze;
-import net.sknv.nkmod.RegistryHandler;
 
 @Mod.EventBusSubscriber(modid = "nkmod")
 public class NkOreGen {
@@ -29,7 +28,7 @@ public class NkOreGen {
     public static void setup() {
         // todo: statistical analysis of ore frequency to adjust overall abundance
         // Surface ore layer
-        URANINITE_ORE_SURFACE = register("uraninite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.URANINITE_ORE.get().getDefaultState(), 6))
+        URANINITE_ORE_SURFACE = register("uraninite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, Naschkatze.URANINITE_ORE.get().getDefaultState(), 6))
                 // TopSolidRangeConfig is explained in comments in the helper method NkOreGen::topRange
                 // DepthAverageConfig is exactly what you'd expect from the param names
                 // .withPlacement(Placement.DEPTH_AVERAGE.configure(new DepthAverageConfig(15, 5)))
@@ -43,7 +42,7 @@ public class NkOreGen {
                 .func_242731_b(1));
 
         // Deep ore layer
-        URANINITE_ORE_DEEP = register("uraninite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.URANINITE_ORE.get().getDefaultState(), 18))
+        URANINITE_ORE_DEEP = register("uraninite_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, Naschkatze.URANINITE_ORE.get().getDefaultState(), 18))
                 .withPlacement(Placement.DEPTH_AVERAGE.configure(new DepthAverageConfig(15, 5)))
                 .square()
                 .func_242731_b(1));
