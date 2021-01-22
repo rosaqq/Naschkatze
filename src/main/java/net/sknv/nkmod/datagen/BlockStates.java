@@ -12,6 +12,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.sknv.nkmod.Naschkatze;
+import net.sknv.nkmod.RegistrateHandler;
 
 import java.util.function.Function;
 
@@ -22,7 +23,7 @@ public class BlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlock(Naschkatze.URANINITE_ORE.get());
+        simpleBlock(RegistrateHandler.URANINITE_ORE.get());
         registerGrinder();
     }
 
@@ -31,7 +32,7 @@ public class BlockStates extends BlockStateProvider {
         // todo: particles not textured
         ResourceLocation[] sides = getSidesArray("grinder_bot", "grinder_top", "grinder_front", "grinder_back", "grinder_sides", "grinder_sides");
         BlockModelBuilder modelGrinder = models().cube("grinder", sides[0], sides[1], sides[2], sides[3], sides[4], sides[5]);
-        orientedBlock(Naschkatze.GRINDER.get(), state -> modelGrinder);
+        orientedBlock(RegistrateHandler.GRINDER.get(), state -> modelGrinder);
 
         // Powered block example
         /*

@@ -1,13 +1,11 @@
 package net.sknv.nkmod.blocks.machines;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.common.util.NonNullConsumer;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.sknv.nkmod.Naschkatze;
+import net.sknv.nkmod.RegistrateHandler;
 import net.sknv.nkmod.blocks.machines.base.AbstractMachineContainer;
 
 
@@ -22,7 +20,7 @@ public class GrinderContainer extends AbstractMachineContainer {
     // (ContainerType<T> var1, int var2, PlayerInventory var3)
     // old ctor
     public GrinderContainer(int windowId, PlayerInventory inv, BlockPos pos) {
-        super(Naschkatze.GRINDER_CONTAINER.get(), Naschkatze.GRINDER, windowId, inv, pos);
+        super(RegistrateHandler.GRINDER_CONTAINER.get(), RegistrateHandler.GRINDER, windowId, inv, pos);
     }
 
 

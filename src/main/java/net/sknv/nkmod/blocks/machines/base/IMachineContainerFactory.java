@@ -1,11 +1,8 @@
 package net.sknv.nkmod.blocks.machines.base;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 /**
  * This interface is required because there exists no Forge/Registrate version with these specific parameters.<br>
