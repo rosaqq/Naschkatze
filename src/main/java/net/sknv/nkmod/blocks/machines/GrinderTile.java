@@ -20,7 +20,8 @@ public class GrinderTile extends AbstractMachineTile {
     @Override
     protected IItemHandler createHandler() {
         return new ItemStackHandler(1) {
-            @Override public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+            @Override
+            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
                 return stack.getItem() == RegistrateHandler.URANINITE_ORE.get().asItem();
             }
 

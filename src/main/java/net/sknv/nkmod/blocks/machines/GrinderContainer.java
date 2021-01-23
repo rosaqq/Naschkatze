@@ -11,14 +11,6 @@ import net.sknv.nkmod.blocks.machines.base.AbstractMachineContainer;
 
 public class GrinderContainer extends AbstractMachineContainer {
 
-    // GRINDER_CONTAINER = new GrinderBlockContainer()
-    // public GrinderBlockContainer().. {
-    //     super(GRINDER_CONTAINER.get()
-    // }
-
-    // new (windowId, inv.player.getEntityWorld(), data.readBlockPos(), inv, inv.player)
-    // (ContainerType<T> var1, int var2, PlayerInventory var3)
-    // old ctor
     public GrinderContainer(int windowId, PlayerInventory inv, BlockPos pos) {
         super(RegistrateHandler.GRINDER_CONTAINER.get(), RegistrateHandler.GRINDER, windowId, inv, pos);
     }

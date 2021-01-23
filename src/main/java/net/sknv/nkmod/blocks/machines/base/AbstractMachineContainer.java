@@ -13,11 +13,25 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
+import net.sknv.nkmod.RegistrateHandler;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
+//todo: javadoc - update container registration when type gets included in the ctor
+/**
+ * Subclass to create a specific Container type for a {@link MachineBlock}, {@code XXContainer}.<br>
+ * Register with:<br>
+ * <pre>
+ * XX_CONTAINER = REGISTRATE.container(
+ *         (type, windowId, inv, data) -> new XXContainer(windowId, inv, data.readBlockPos()),
+ *         () -> new MachineScreenFactory<>("textures/gui/my_gui.png")).register();
+ * </pre>
+ * Note: If you register this right after it's respective block, it piggybacks on the block's {@code .object()} call so you don't need to include it. Full example on {@link RegistrateHandler}<br>
+ * Check the constructor javadoc: {@link AbstractMachineContainer#AbstractMachineContainer}.
+ *
+ */
 public abstract class AbstractMachineContainer extends Container {
 
     protected TileEntity tileEntity;
@@ -25,6 +39,14 @@ public abstract class AbstractMachineContainer extends Container {
     protected IItemHandler playerInventory;
     protected RegistryEntry<MachineBlock> blockEntry;
 
+    /**
+     * Check class javadoc: {@link AbstractMachineContainer}.
+     * @param type Container type, get it from {@link RegistrateHandler}.XX_CONTAINER.get()
+     * @param blockEntry The respective Block RegistryEntry, pass {@code RegistrateHandler.XX_BLOCK}
+     * @param windowId Subclass constructor param, pass through
+     * @param inv Subclass constructor param, pass through
+     * @param pos Subclass constructor param, pass through
+     */
     public AbstractMachineContainer(@Nullable ContainerType<?> type, RegistryEntry<MachineBlock> blockEntry, int windowId, PlayerInventory inv, BlockPos pos) {
         super(type, windowId);
         tileEntity = inv.player.getEntityWorld().getTileEntity(pos);
@@ -38,6 +60,14 @@ public abstract class AbstractMachineContainer extends Container {
         layoutPlayerInventorySlots(8, 84);
     }
 
+    /**
+     * Implementation example:
+     * <pre>{@code return h -> {
+     *     // Furnace input slot
+     *     addSlot(new SlotItemHandler(h, 0, 56, 17));
+     * };}</pre>
+     * @return Something that consumes an ItemHandler.
+     */
     public abstract NonNullConsumer<IItemHandler> itemHandlerConsumerProvider();
 
     @Override

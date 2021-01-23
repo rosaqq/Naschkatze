@@ -13,10 +13,20 @@ import net.sknv.nkmod.Naschkatze;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+/**
+ * Creates a ContainerScreen for the specified Container type.<br>
+ * All you have to do is pass the texture location -> {@link MachineScreenFactory#MachineScreenFactory(String textureLocation)}.<br>
+ * @param <C> The Container type this screen will be for.
+ */
 public class MachineScreenFactory<C extends Container> implements ContainerBuilder.ScreenFactory<C, ContainerScreen<C>> {
 
     private final String textureLocation;
 
+    /**
+     * Creates the ScreenFactory for the specific texture.<br>
+     * Ex: {@code "textures/gui/grinder_gui.png"}
+     * @param textureLocation The texture for your Screen.
+     */
     public MachineScreenFactory(String textureLocation) {
         this.textureLocation = textureLocation;
     }
@@ -43,6 +53,7 @@ public class MachineScreenFactory<C extends Container> implements ContainerBuild
             @Override
             protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
                 RenderSystem.color4f(1f, 1f, 1f, 1f);
+                // todo: Should I worry about this NPE warning?
                 this.minecraft.getTextureManager().bindTexture(GUI);
                 int relX = (this.width - this.xSize) / 2;
                 int relY = (this.height - this.ySize) / 2;

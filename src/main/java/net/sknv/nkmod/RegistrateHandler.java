@@ -18,6 +18,34 @@ import net.sknv.nkmod.blocks.machines.base.MachineScreenFactory;
 
 import javax.annotation.Nonnull;
 
+/**
+ * This is where Registry entries get initialized.<br>
+ * First static declare them as fields, then initialize inside the {@link RegistrateHandler#init()} method, which is called in the main class constructor.<br>
+ *
+ * <h2>Declare:</h2>
+ * <pre>{@code // Simple block
+ * public static RegistryEntry<NkOreBlock> URANINITE_ORE;
+ * // Block with TE and Container
+ * public static RegistryEntry<MachineBlock> GRINDER;
+ * public static RegistryEntry<ContainerType<Container>> GRINDER_CONTAINER;
+ * // Item
+ * public static RegistryEntry<Item> CRUSHED_URANINITE;}</pre>
+ *
+ * <h2>Initialize:</h2>
+ * <pre>{@code // Simple block
+ * URANINITE_ORE = REGISTRATE.object("uraninite_ore").block(NkOreBlock::new)
+ *         .properties(p -> p.harvestLevel(2))
+ *         .simpleItem().register();
+ * // Block with TE and Container
+ * GRINDER = REGISTRATE.object("grinder").block(Material.IRON, p -> new MachineBlock(p, () -> new GrinderTile(GRINDER.getSibling(ForgeRegistries.TILE_ENTITIES).get())))
+ *         .simpleTileEntity(GrinderTile::new)
+ *         .simpleItem().register();
+ * GRINDER_CONTAINER = REGISTRATE.container(
+ *         (type, windowId, inv, data) -> new GrinderContainer(windowId, inv, data.readBlockPos()),
+ *         () -> new MachineScreenFactory<>("textures/gui/grinder_gui.png")).register();
+ * // Item
+ * CRUSHED_URANINITE = REGISTRATE.object("crushed_uraninite").item(Item::new).register();}</pre>
+ */
 public class RegistrateHandler {
 
     public static Registrate REGISTRATE;
@@ -51,7 +79,9 @@ public class RegistrateHandler {
                 .simpleItem().register();
         // todo: GrinderContainer should not ignore type param
         // todo: data.readBlockPos() ok? NPE?
-        GRINDER_CONTAINER = REGISTRATE.container((type, windowId, inv, data) -> new GrinderContainer(windowId, inv, data.readBlockPos()), () -> new MachineScreenFactory<>("textures/gui/grinder_gui.png")).register();
+        GRINDER_CONTAINER = REGISTRATE.container(
+                (type, windowId, inv, data) -> new GrinderContainer(windowId, inv, data.readBlockPos()),
+                () -> new MachineScreenFactory<>("textures/gui/grinder_gui.png")).register();
 
         // items
         CRUSHED_URANINITE = REGISTRATE.object("crushed_uraninite").item(Item::new).register();
