@@ -36,7 +36,8 @@ public class RegistrateHandler {
     public static RegistryEntry<Item> GRAPHITE_INGOT;
 
     public static void init() {
-        REGISTRATE = Registrate.create(Naschkatze.MODID).itemGroup(()-> new ItemGroup("tabNk") {
+
+        REGISTRATE = Registrate.create(Naschkatze.MODID).itemGroup(()-> new ItemGroup("nk_tab") {
             @Nonnull
             @Override
             public ItemStack createIcon() {
