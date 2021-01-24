@@ -3,13 +3,16 @@ package net.sknv.nkmod.blocks.machines.base;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
@@ -40,6 +43,7 @@ public abstract class AbstractMachineTile extends TileEntity implements ITickabl
 
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(this::createHandler);
     private final IMachineContainerFactory containerFactory;
+    protected NonNullList<ItemStack> items;
 
     /**
      * Check class javadoc: {@link AbstractMachineTile}.
@@ -84,16 +88,13 @@ public abstract class AbstractMachineTile extends TileEntity implements ITickabl
     }
 
     @Override
-    public void tick() {
-
-    }
-
-    @Override
     @ParametersAreNonnullByDefault
     @SuppressWarnings("unchecked")
     public void read(BlockState state, CompoundNBT tag) {
         CompoundNBT invTag = tag.getCompound("inv");
         handler.ifPresent(h -> ((INBTSerializable<CompoundNBT>)h).deserializeNBT(invTag));
+        this.items = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
+        ItemStackHelper.loadAllItems(invTag, this.items);
         super.read(state, tag);
     }
 
@@ -117,4 +118,16 @@ public abstract class AbstractMachineTile extends TileEntity implements ITickabl
         }
         return super.getCapability(cap, side);
     }
+
+    protected abstract boolean isBurning();
+
+
+    /**
+     * Returns the number of slots in the inventory.
+     */
+    public int getSizeInventory() {
+        return this.items.size();
+    }
+
+    public abstract int getTimeLeft();
 }

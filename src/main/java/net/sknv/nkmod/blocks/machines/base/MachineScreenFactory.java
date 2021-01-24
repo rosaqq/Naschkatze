@@ -18,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  * All you have to do is pass the texture location -> {@link MachineScreenFactory#MachineScreenFactory(String textureLocation)}.<br>
  * @param <C> The Container type this screen will be for.
  */
-public class MachineScreenFactory<C extends Container> implements ContainerBuilder.ScreenFactory<C, ContainerScreen<C>> {
+public class MachineScreenFactory<C extends AbstractMachineContainer> implements ContainerBuilder.ScreenFactory<C, ContainerScreen<C>> {
 
     private final String textureLocation;
 
@@ -58,6 +58,10 @@ public class MachineScreenFactory<C extends Container> implements ContainerBuild
                 int relX = (this.width - this.xSize) / 2;
                 int relY = (this.height - this.ySize) / 2;
                 this.blit(matrixStack, relX, relY, 0, 0, this.xSize, this.ySize);
+                if (this.container.isBurning()) {
+                    int k = this.container.getBurnLeftScaled();
+                    this.blit(matrixStack, relX + 56, relY + 36 + 12 - k, 176, 12 - k, 14, k + 1);
+                }
             }
         };
     }

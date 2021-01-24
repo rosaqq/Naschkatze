@@ -5,7 +5,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.util.NonNullConsumer;
@@ -34,7 +33,7 @@ import java.util.Objects;
  */
 public abstract class AbstractMachineContainer extends Container {
 
-    protected TileEntity tileEntity;
+    protected AbstractMachineTile tileEntity;
     protected PlayerEntity playerEntity;
     protected IItemHandler playerInventory;
     protected RegistryEntry<MachineBlock> blockEntry;
@@ -49,7 +48,7 @@ public abstract class AbstractMachineContainer extends Container {
      */
     public AbstractMachineContainer(@Nullable ContainerType<?> type, RegistryEntry<MachineBlock> blockEntry, int windowId, PlayerInventory inv, BlockPos pos) {
         super(type, windowId);
-        tileEntity = inv.player.getEntityWorld().getTileEntity(pos);
+        tileEntity = (AbstractMachineTile) inv.player.getEntityWorld().getTileEntity(pos);
         this.playerEntity = inv.player;
         this.playerInventory = new InvWrapper(inv);
         this.blockEntry = blockEntry;
@@ -99,5 +98,18 @@ public abstract class AbstractMachineContainer extends Container {
         // Hotbar
         topRow += 58;
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
+    }
+
+    public int getBurnLeftScaled() {
+        int i = this.tileEntity.getTimeLeft();
+        if (i == 0) {
+            i = 200;
+        }
+
+        return this.tileEntity.getTimeLeft() * 13 / i;
+    }
+    public boolean isBurning() {
+        return this.tileEntity.isBurning();
+        // return this.furnaceData.get(0) > 0;
     }
 }

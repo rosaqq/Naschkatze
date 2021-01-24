@@ -13,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.sknv.nkmod.blocks.NkOreBlock;
 import net.sknv.nkmod.blocks.machines.GrinderContainer;
 import net.sknv.nkmod.blocks.machines.GrinderTile;
+import net.sknv.nkmod.blocks.machines.base.AbstractMachineContainer;
 import net.sknv.nkmod.blocks.machines.base.MachineBlock;
 import net.sknv.nkmod.blocks.machines.base.MachineScreenFactory;
 
@@ -53,7 +54,7 @@ public class RegistrateHandler {
     // blocks
     public static RegistryEntry<NkOreBlock> URANINITE_ORE;
     public static RegistryEntry<MachineBlock> GRINDER;
-    public static RegistryEntry<ContainerType<Container>> GRINDER_CONTAINER;
+    public static RegistryEntry<ContainerType<AbstractMachineContainer>> GRINDER_CONTAINER;
 
     // items
     public static RegistryEntry<Item> CRUSHED_URANINITE;
