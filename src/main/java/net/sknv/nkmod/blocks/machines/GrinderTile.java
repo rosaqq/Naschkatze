@@ -28,7 +28,7 @@ public class GrinderTile extends AbstractMachineTile {
 
     public GrinderTile(TileEntityType<?> type) {
         super(type, GrinderContainer::new);
-        this.items = NonNullList.withSize(2, ItemStack.EMPTY);
+        this.items = NonNullList.withSize(3, ItemStack.EMPTY);
         //this.recipeType = recipeType
     }
 
@@ -48,7 +48,7 @@ public class GrinderTile extends AbstractMachineTile {
     @Nonnull
     @Override
     protected IItemHandler createHandler() {
-        return new ItemStackHandler(1) {
+        return new ItemStackHandler(3) {
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
                 return stack.getItem() == RegistrateHandler.URANINITE_ORE.get().asItem();
@@ -83,7 +83,7 @@ public class GrinderTile extends AbstractMachineTile {
     }
 
     private void smelt() {
-        //todo: lmao forgot to add output slot yikes. also fuel slot too, since we are stealing the furnace code
+        //todo: not detecting which item is in slot, this prints air
         LogManager.getLogger().error("tryna smelt itemstack: " + this.items.get(0));
         //ItemStack itemstack = this.items.get(0);
         //ItemStack itemstack1 = recipe.getRecipeOutput();

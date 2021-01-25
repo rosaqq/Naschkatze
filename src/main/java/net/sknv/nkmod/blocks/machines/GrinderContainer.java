@@ -19,15 +19,14 @@ public class GrinderContainer extends AbstractMachineContainer {
     @Override
     public NonNullConsumer<IItemHandler> itemHandlerConsumerProvider() {
         return h -> {
-            // Furnace input slot
+            // input slot
             addSlot(new SlotItemHandler(h, 0, 56, 17));
             // Furnace fuel slot
             // todo: item handler for fuel
-            //addSlot(new SlotItemHandler(h, 1, 56, 53));
+            addSlot(new SlotItemHandler(h, 1, 56, 53));
             // Furnace result slot
             // todo: item handler / code for output
-            //addSlot(new SlotItemHandler(h, 2, 116, 35));
-
+            addSlot(new SlotItemHandler(h, 2, 116, 35));
         };
     }
 }

@@ -93,7 +93,6 @@ public abstract class AbstractMachineTile extends TileEntity implements ITickabl
     public void read(BlockState state, CompoundNBT tag) {
         CompoundNBT invTag = tag.getCompound("inv");
         handler.ifPresent(h -> ((INBTSerializable<CompoundNBT>)h).deserializeNBT(invTag));
-        this.items = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(invTag, this.items);
         super.read(state, tag);
     }
