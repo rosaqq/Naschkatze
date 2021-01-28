@@ -1,12 +1,12 @@
 package net.sknv.nkmod.blocks.machines.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
@@ -18,7 +18,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
 
 /**
@@ -56,9 +58,11 @@ import java.util.function.Supplier;
  * </ol>
  *
  */
-public class MachineBlock extends Block {
+public class MachineBlock extends ContainerBlock {
 
     private final Supplier<TileEntity> tileEntitySupplier;
+    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    public static final BooleanProperty WORKING = BooleanProperty.create("machine_working");
 
     /**
      * Check class javadoc for more info -> {@link MachineBlock}.
@@ -66,20 +70,35 @@ public class MachineBlock extends Block {
      * @param tileEntitySupplier A supplier for the TileEntity that will be associated with this Block
      */
     public MachineBlock(Properties p, Supplier<TileEntity> tileEntitySupplier) {
-        super(p.sound(SoundType.METAL).hardnessAndResistance(2f));
+        super(p.sound(SoundType.METAL).hardnessAndResistance(2f).setLightLevel(MachineBlock::getLightValue));
         this.tileEntitySupplier = tileEntitySupplier;
+
+        // Set default state
+        BlockState defaultState = this.getStateContainer().getBaseState().with(WORKING, false);
+        this.setDefaultState(defaultState);
+    }
+
+    /**
+     * Returns a different light level based on the BlockState (working or not)
+     * @param state BlockState in
+     * @return Light level out
+     */
+    public static int getLightValue(BlockState state) {
+        boolean working = state.get(WORKING);
+        return working ? 10 : 0;
     }
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(BlockStateProperties.HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.HORIZONTAL_FACING);
+        builder.add(FACING, WORKING);
     }
 
+    // Kinda useless since this block extends ContainerBlock
     @Override
     public boolean hasTileEntity(BlockState state) {
         return true;
@@ -88,21 +107,49 @@ public class MachineBlock extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return tileEntitySupplier.get();
+        return createNewTileEntity(world);
     }
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (!worldIn.isRemote) {
-            TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if (tileEntity instanceof INamedContainerProvider) {
-                NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tileEntity, tileEntity.getPos());
-            }
-            else {
-                throw new IllegalStateException("Named container is missing!");
-            }
-            return ActionResultType.CONSUME;
+        // game logic should only be ran on the logical server
+        // so if this client, we don nothing
+        if (worldIn.isRemote) return ActionResultType.SUCCESS;
+        // if this is the server...
+        INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
+        if (namedContainerProvider != null) {
+            NetworkHooks.openGui((ServerPlayerEntity) player, namedContainerProvider, (packetBuffer)->{});
+            // (packetBuffer)->{} is just a do-nothing because we have no extra data to send
         }
-        return ActionResultType.SUCCESS;
+        // diff is arm swing?
+        return ActionResultType.CONSUME;
+        // return ActionResultType.SUCCESS;
+    }
+
+    @Override
+    @ParametersAreNonnullByDefault
+    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity tileEntity = worldIn.getTileEntity(pos);
+            if (tileEntity instanceof AbstractMachineTile) {
+                ((AbstractMachineTile)tileEntity).dropAllContents(worldIn, pos);
+            }
+            super.onReplaced(state, worldIn, pos, newState, isMoving);
+        }
+    }
+
+    @Nullable
+    @Override
+    @ParametersAreNonnullByDefault
+    public TileEntity createNewTileEntity(IBlockReader worldIn) {
+        return tileEntitySupplier.get();
+    }
+
+    // required because the default (super method) is INVISIBLE for BlockContainers.
+    @Nonnull
+    @Override
+    @ParametersAreNonnullByDefault
+    public BlockRenderType getRenderType(BlockState iBlockState) {
+        return BlockRenderType.MODEL;
     }
 }
