@@ -1,12 +1,15 @@
 package net.sknv.nkmod.blocks.machines;
 
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.util.NonNullConsumer;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.sknv.nkmod.RegistrateHandler;
 import net.sknv.nkmod.blocks.machines.base.AbstractMachineContainer;
+
+import javax.annotation.Nonnull;
 
 
 public class GrinderContainer extends AbstractMachineContainer {
@@ -21,13 +24,23 @@ public class GrinderContainer extends AbstractMachineContainer {
     public NonNullConsumer<IItemHandler> itemHandlerConsumerProvider() {
         return h -> {
             // input slot
-            addSlot(new SlotItemHandler(h, INPUT_SLOT, 56, 17));
+            addSlot(new SlotItemHandler(h, INPUT_SLOT, 56, 17) {
+                @Override
+                public boolean isItemValid(@Nonnull ItemStack stack) {
+                    return true;
+                }
+            });
             // Furnace fuel slot
             // todo: item handler for fuel
-            addSlot(new SlotItemHandler(h, 1, 56, 53));
+            //addSlot(new SlotItemHandler(h, 1, 56, 53));
             // Furnace result slot
             // todo: item handler / code for output
-            addSlot(new SlotItemHandler(h, OUTPUT_SLOT, 116, 35));
+            addSlot(new SlotItemHandler(h, OUTPUT_SLOT, 116, 35) {
+                @Override
+                public boolean isItemValid(@Nonnull ItemStack stack) {
+                    return false;
+                }
+            });
         };
     }
 }

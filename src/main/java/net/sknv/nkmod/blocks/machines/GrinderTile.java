@@ -202,31 +202,7 @@ public class GrinderTile extends AbstractMachineTile {
     @Nonnull
     @Override
     protected IItemHandler createHandler() {
-        return new ItemStackHandler(3) {
-            @Override
-            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return stack.getItem() == RegistrateHandler.URANINITE_ORE.get().asItem();
-            }
-
-            @Nonnull
-            @Override
-            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                // if not uraninite ore, returns stack
-                if (stack.getItem() != RegistrateHandler.URANINITE_ORE.get().asItem()) {
-                    return stack;
-                }
-                // else starts grinding
-                return super.insertItem(slot, stack, simulate);
-            }
-
-            @Nonnull
-            @Override
-            public ItemStack extractItem(int slot, int amount, boolean simulate) {
-                if (getStackInSlot(slot).getItem() == RegistrateHandler.URANINITE_ORE.get().asItem()) {
-                }
-                return super.extractItem(slot, amount, simulate);
-            }
-        };
+        return new ItemStackHandler(3);
     }
 
     private void smelt() {
