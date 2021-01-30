@@ -106,9 +106,11 @@ public class MachineBlock extends ContainerBlock {
 
     @Nullable
     @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return createNewTileEntity(world);
+    @ParametersAreNonnullByDefault
+    public TileEntity createNewTileEntity(IBlockReader worldIn) {
+        return tileEntitySupplier.get();
     }
+
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
@@ -116,10 +118,10 @@ public class MachineBlock extends ContainerBlock {
         // so if this client, we don nothing
         if (worldIn.isRemote) return ActionResultType.SUCCESS;
         // if this is the server...
-        INamedContainerProvider namedContainerProvider = this.getContainer(state, worldIn, pos);
-        if (namedContainerProvider != null) {
-            NetworkHooks.openGui((ServerPlayerEntity) player, namedContainerProvider, (packetBuffer)->{});
-            // (packetBuffer)->{} is just a do-nothing because we have no extra data to send
+        INamedContainerProvider container = this.getContainer(state, worldIn, pos);
+        if (container != null) {
+            NetworkHooks.openGui((ServerPlayerEntity) player, container, pos);
+            // is this the pos that goes in RegistrateHandler?
         }
         // diff is arm swing?
         return ActionResultType.CONSUME;
@@ -136,13 +138,6 @@ public class MachineBlock extends ContainerBlock {
             }
             super.onReplaced(state, worldIn, pos, newState, isMoving);
         }
-    }
-
-    @Nullable
-    @Override
-    @ParametersAreNonnullByDefault
-    public TileEntity createNewTileEntity(IBlockReader worldIn) {
-        return tileEntitySupplier.get();
     }
 
     // required because the default (super method) is INVISIBLE for BlockContainers.
