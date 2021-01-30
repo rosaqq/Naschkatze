@@ -75,7 +75,7 @@ public abstract class AbstractMachineContainer extends Container {
         if (tileEntity != null)
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandlerConsumerProvider());
 
-        bindPlayerInventory(inv);
+        layoutPlayerInventorySlots();
         trackIntArray(tileEntity.machineStateData);
     }
 
@@ -183,21 +183,60 @@ public abstract class AbstractMachineContainer extends Container {
         return mergeItemStack(sourceItemStack, destinationZone.firstIndex, destinationZone.lastIndexPlus1, fillFromEnd);
     }
 
-    protected void bindPlayerInventory(PlayerInventory inventory) {
-        int xOffset = 8;
-        int yOffset = 84;
 
-        int i;
-        for(i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(inventory, j + i * 9 + 9, xOffset + j * 18, yOffset + i * 18));
-            }
+
+    private void layoutPlayerInventorySlots() {
+        // Player inventory
+        int leftCol = 8;
+        int topRow = 84;
+
+        // add main inv, index 9-35
+        addSlotBox(playerInventory, 9, leftCol, topRow, 9, 18, 3, 18);
+
+        // Hotbar, index 0-9
+        topRow += 58;
+        addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
+    }
+
+    /**
+     * Adds a row of slots.
+     *
+     * @param handler
+     * @param index Index for the first slot. Gets auto incremented for each sequential slot.
+     * @param x Horizontal position for the first slot.
+     * @param y Vertical position for the first slot.
+     * @param amount Number of slots to add.
+     * @param dx Change in x position for next slot.
+     * @return The last added slot's index.
+     */
+    private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
+        for (int i = 0 ; i < amount ; i++) {
+            addSlot(new SlotItemHandler(handler, index, x, y));
+            x += dx;
+            index++;
         }
+        return index;
+    }
 
-        for(i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(inventory, i, xOffset + i * 18, yOffset + 58));
+    /**
+     * Adds multiple rows of slots, creating a grid.
+     *
+     * @param handler
+     * @param index Index of the first slot.
+     * @param x Horizontal position for the first slot.
+     * @param y Vertical position for the first slot.
+     * @param rowSize How many slots for each row.
+     * @param dx Change in x position for next slot.
+     * @param rowCount How many rows.
+     * @param dy Change in y position for next slot.
+     * @return The last added slot's index.
+     */
+    private int addSlotBox(IItemHandler handler, int index, int x, int y, int rowSize, int dx, int rowCount, int dy) {
+        for (int j = 0 ; j < rowCount ; j++) {
+            index = addSlotRange(handler, index, x, y, rowSize, dx);
+            y += dy;
         }
-
+        return index;
     }
 
     public int getBurnLeftScaled() {
